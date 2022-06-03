@@ -1,0 +1,10 @@
+abanq-build/
+.obj/
+.moc/
+*.o
+*~
+*.so
+*.a
+*.prl
+Makefile
+.qmake.cache

@@ -9426,14 +9426,6 @@ connection information.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>En m&#xe9;todo alterTable, no se ha podido borrar el &#xed;ndice %1_pkey de la tabla antigua.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>En m&#xe9;todo alterTable, no se ha podido borrar el &#xed;ndice %1_%2_key de la tabla antigua.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No se ha podido renombrar la tabla antigua.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9451,18 +9443,6 @@ connection information.
     </message>
     <message>
         <source>Los tipos del campo %1 no son compatibles. Se introducir&#xe1; un valor nulo.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No se pudo iniciar transacci&#xf3;n</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No se pudo aceptar la transacci&#xf3;n</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No se pudo deshacer la transacci&#xf3;n</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9557,10 +9537,6 @@ connection information.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Esta consulta s&#xf3;lo puede posicionarse hacia adelante (isForwardOnly)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No se ha podido declarar el cursor %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9573,11 +9549,51 @@ connection information.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No se ha podido mover a una posici&#xf3;n del cursor %1</source>
+        <source>No se ha podido mover a una posici&#xef;&#xbf;&#xbd;n del cursor %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No se ha podido calcular el tama&#xf1;o del cursor %1</source>
+        <source>Esta consulta s&#xef;&#xbf;&#xbd;lo puede posicionarse hacia adelante (isForwardOnly)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No se ha podido calcular el tama&#xef;&#xbf;&#xbd;o del cursor %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hay m&#xef;&#xbf;&#xbd;s de un campo tipo unlock. Solo puede haber uno.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> ya es clave primaria. S&#xef;&#xbf;&#xbd;lo puede existir una clave primaria en FLTableMetaData, use FLCompoundKey para crear claves compuestas.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S&#xef;&#xbf;&#xbd;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>En m&#xef;&#xbf;&#xbd;todo alterTable, no se ha podido borrar el &#xef;&#xbf;&#xbd;ndice %1_pkey de la tabla antigua.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>En m&#xef;&#xbf;&#xbd;todo alterTable, no se ha podido borrar el &#xef;&#xbf;&#xbd;ndice %1_%2_key de la tabla antigua.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Los tipos del campo %1 no son compatibles. Se introducir&#xef;&#xbf;&#xbd; un valor nulo.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No se pudo iniciar transacci&#xef;&#xbf;&#xbd;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No se pudo aceptar la transacci&#xef;&#xbf;&#xbd;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No se pudo deshacer la transacci&#xef;&#xbf;&#xbd;n</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -10881,10 +10897,6 @@ or contact sales@trolltech.com for further information</source>
 <context>
     <name>QPSQLDriver</name>
     <message>
-        <source>Conexi&#xf3;n fallida</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>La base de datos template1 no existe.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10897,40 +10909,11 @@ or contact sales@trolltech.com for further information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>La versi&#xf3;n de PostgreSQL es inferior a la 7.4.
-Se necesita PostgreSQL 7.4 o superior.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Crear base de datos</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>La base de datos %1 no existe. &#xbf;Quiere crearla?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Creaci&#xf3;n fallida</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No se pudo crear la base de datos %1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>La base de datos %1 ha sido creada, pero no se pudo realizar la conexi&#xf3;n.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Este proceso puede tener una larga duraci&#xf3;n, dependiendo
-del tama&#xf1;o de la base de datos.
-Antes de empezar debe asegurarse que durante todo el proceso
-no habr&#xe1; otros usuarios conectados a esta base de datos, de lo
-contrario los resultados ser&#xe1;n impredecibles. Aseg&#xfa;rese tambi&#xe9;n
-de tener una COPIA DE SEGURIDAD actualizada de esta base de datos
-antes de empezar.
-
-&#xbf; Quiere continuar ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -10943,22 +10926,6 @@ antes de empezar.
     </message>
     <message>
         <source>Borrando tabla %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Inicializando cach&#xe9;s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Regenerando &#xed;ndices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Regenerando &#xed;ndice %1.%2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Creando &#xed;ndices para %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -10979,6 +10946,55 @@ antes de empezar.
     </message>
     <message>
         <source>Comprobando tabla %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conexi&#xef;&#xbf;&#xbd;n fallida</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La versi&#xef;&#xbf;&#xbd;n de PostgreSQL es inferior a la 7.4.
+Se necesita PostgreSQL 7.4 o superior.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La base de datos %1 no existe. &#xef;&#xbf;&#xbd;Quiere crearla?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creaci&#xef;&#xbf;&#xbd;n fallida</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La base de datos %1 ha sido creada, pero no se pudo realizar la conexi&#xef;&#xbf;&#xbd;n.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Este proceso puede tener una larga duraci&#xef;&#xbf;&#xbd;n, dependiendo
+del tama&#xef;&#xbf;&#xbd;o de la base de datos.
+Antes de empezar debe asegurarse que durante todo el proceso
+no habr&#xef;&#xbf;&#xbd; otros usuarios conectados a esta base de datos, de lo
+contrario los resultados ser&#xef;&#xbf;&#xbd;n impredecibles. Aseg&#xef;&#xbf;&#xbd;rese tambi&#xef;&#xbf;&#xbd;n
+de tener una COPIA DE SEGURIDAD actualizada de esta base de datos
+antes de empezar.
+
+&#xef;&#xbf;&#xbd; Quiere continuar ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inicializando cach&#xef;&#xbf;&#xbd;s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Regenerando &#xef;&#xbf;&#xbd;ndices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Regenerando &#xef;&#xbf;&#xbd;ndice %1.%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creando &#xef;&#xbf;&#xbd;ndices para %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
