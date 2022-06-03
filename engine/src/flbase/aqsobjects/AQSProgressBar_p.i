@@ -1,0 +1,11 @@
+@QProgressBar(QWidget* parent=0, const char* name=0, WFlags f=0);
+@QProgressBar(int totalSteps, QWidget* parent=0, const char* name=0, WFlags f=0);
+int totalSteps() const;
+int progress() const;
+const QString& progressString() const;
+void setCenterIndicator(bool on);
+bool centerIndicator() const;
+void setIndicatorFollowsStyle(bool);
+bool indicatorFollowsStyle() const;
+bool percentageVisible() const;
+void setPercentageVisible(bool);

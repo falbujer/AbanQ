@@ -1,0 +1,10 @@
+@QSplitter(QWidget* parent=0, const char* name=0);
+@QSplitter(Qt::Orientation o, QWidget* parent=0, const char* name=0);
+void setCollapsible(QWidget* w, bool collapse);
+virtual void setResizeMode(QWidget* w, QSplitter::ResizeMode mode);
+void moveToFirst(QWidget* w);
+void moveToLast(QWidget* w);
+void refresh();
+void setSizes(QValueList<int> list);
+int handleWidth() const;
+void setHandleWidth(int);

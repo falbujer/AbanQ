@@ -1,0 +1,10 @@
+@AQPackager(const QString& output=QString::null);
+bool pack(const QString& input, bool cleanTmp=true, bool tgz=false, bool pseudoCode=false, bool roll=true, bool unifyActions=false);
+bool unpack(const QString& input);
+QString output() const;
+QString outputPackage() const;
+void setEncodeUtf8(bool b=true);
+QStringList errorMessages() const;
+QStringList logMessages() const;
+void setFilter(const QStringList& fileList);
+QStringList filter() const;

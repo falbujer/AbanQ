@@ -1,0 +1,10 @@
+@QCanvasEllipse(QCanvas* canvas);
+@QCanvasEllipse(int width, int height, QCanvas* canvas);
+@QCanvasEllipse(int width, int height, int startangle, int angle, QCanvas* canvas);
+int width() const;
+int height() const;
+void setSize(int width, int height);
+void setAngles(int start, int length);
+int angleStart() const;
+int angleLength() const;
+virtual int rtti() const;

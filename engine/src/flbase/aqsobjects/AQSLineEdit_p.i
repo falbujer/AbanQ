@@ -1,0 +1,12 @@
+@QLineEdit(QWidget* parent, const char* name=0);
+@QLineEdit(const QString& contents, QWidget* parent, const char* name=0);
+@QLineEdit(const QString& contents, const QString& inputMask, QWidget* parent, const char* name=0);
+void cursorForward(bool mark, int steps=1);
+void cursorBackward(bool mark, int steps=1);
+void cursorWordForward(bool mark);
+void cursorWordBackward(bool mark);
+void backspace();
+void del();
+void home(bool mark);
+void end(bool mark);
+int selectionStart() const;

@@ -1,0 +1,12 @@
+@QDomNamedNodeMap();
+@QDomNamedNodeMap(QDomNamedNodeMap* n);
+QDomNode* namedItem(const QString& name) const;
+QDomNode* setNamedItem(QDomNode* newNode);
+QDomNode* removeNamedItem(const QString& name);
+QDomNode* item(int index) const;
+QDomNode* namedItemNS(const QString& nsURI, const QString& localName) const;
+QDomNode* setNamedItemNS(QDomNode* newNode);
+QDomNode* removeNamedItemNS(const QString& nsURI, const QString& localName);
+uint length() const;
+uint count() const;
+bool contains(const QString& name) const;

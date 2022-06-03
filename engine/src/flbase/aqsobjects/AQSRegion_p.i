@@ -1,0 +1,15 @@
+@QRegion();
+@QRegion(int x, int y, int w, int h, QRegion::RegionType t=Rectangle);
+@QRegion(const QRect& r, QRegion::RegionType t=Rectangle);
+@QRegion(QPointArray* a, bool winding=FALSE);
+@QRegion(QRegion* r);
+bool isNull() const;
+bool isEmpty() const;
+bool contains(const QPoint& p) const;
+bool contains(const QRect& r) const;
+void translate(int dx, int dy);
+QRegion* unite(QRegion* r) const;
+QRegion* intersect(QRegion* r) const;
+QRegion* subtract(QRegion* r) const;
+QRegion* eor(QRegion* r) const;
+QRect boundingRect() const;

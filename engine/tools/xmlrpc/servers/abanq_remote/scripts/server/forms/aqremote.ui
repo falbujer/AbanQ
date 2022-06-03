@@ -1,0 +1,31 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>aqremote</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>aqremote</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>542</width>
+            <height>344</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>AbanQ Remote Server</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>2</number>
+        </property>
+        <property name="spacing">
+            <number>2</number>
+        </property>
+    </vbox>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

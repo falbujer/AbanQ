@@ -1,0 +1,18 @@
+bool checkSyntax(const QString& code);
+QStringList functions(QSInterpreter::FunctionFlags flag=QSInterpreter::FunctionNames) const;
+QStringList functions(const QString& context, uint mask=QSInterpreter::FunctionNames) const;
+QStringList functions(QObject* context, QSInterpreter::FunctionFlags flag=QSInterpreter::FunctionNames) const;
+QStringList classes(QSInterpreter::ClassFlags flag=QSInterpreter::AllClasses) const;
+QStringList classes(const QString& context) const;
+QStringList classes(QObject* context) const;
+QStringList variables(bool includeStatic=false, bool includeCustom=false, bool includeMemberVariables=false) const;
+QStringList variables(const QString& context, bool includeStatic=false, bool includeCustom=false, bool includeMemberVariables=false) const;
+QStringList variables(QObject* context, bool includeStatic=false, bool includeCustom=false, bool includeMemberVariables=false) const;
+bool hasFunction(const QString& function) const;
+bool hasClass(const QString& className) const;
+bool hasVariable(const QString& variable) const;
+QObjectList presentObjects() const;
+bool isRunning() const;
+bool hadError() const;
+bool interactiveGUI() const;
+void setInteractiveGUI(bool on=true);

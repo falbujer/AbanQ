@@ -1,0 +1,18 @@
+@QAction(QObject* parent, const char* name=0);
+@QAction(const QString& menuText, QKeySequence accel, QObject* parent, const char* name=0);
+@QAction(QIconSet* icon, const QString& menuText, QKeySequence accel, QObject* parent, const char* name=0);
+virtual void setIconSet(QIconSet*);
+QIconSet* iconSet() const ;
+virtual void setText(const QString&);
+virtual void setMenuText(const QString&);
+virtual void setToolTip(const QString&);
+virtual void setStatusTip(const QString&);
+virtual void setWhatsThis(const QString&);
+virtual void setAccel(const QKeySequence& key);
+virtual void setToggleAction(bool);
+bool isToggleAction() const;
+bool isOn() const;
+bool isEnabled() const;
+bool isVisible() const;
+virtual bool addTo(QWidget* w);
+virtual bool removeFrom(QWidget* w);

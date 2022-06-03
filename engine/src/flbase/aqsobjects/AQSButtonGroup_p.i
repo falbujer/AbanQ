@@ -1,0 +1,11 @@
+@QButtonGroup(QWidget* parent=0, const char* name=0);
+@QButtonGroup(const QString& title, QWidget* parent=0, const char* name=0);
+@QButtonGroup(int strips, Qt::Orientation orientation, QWidget* parent=0, const char* name=0);
+@QButtonGroup(int strips, Qt::Orientation orientation, const QString& title, QWidget* parent=0, const char* name=0);
+int insert(QButton* button, int id=-1);
+void remove(QButton* button);
+QButton* find(int id) const;
+int id(QButton* button) const;
+int count() const;
+void moveFocus(int key);
+QButton* selected() const;

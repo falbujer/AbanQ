@@ -1,0 +1,13 @@
+@QDataStream();
+@QDataStream(QIODevice* d);
+@QDataStream(QByteArray* a, int filemode);
+QIODevice* device() const;
+void setDevice(QIODevice* d);
+void unsetDevice();
+bool atEnd() const;
+int byteOrder() const;
+void setByteOrder(int bo);
+bool isPrintableData() const;
+void setPrintableData(bool enable);
+int version() const;
+void setVersion(int v);

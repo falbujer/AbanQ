@@ -1,0 +1,18 @@
+@QIconView(QWidget* parent=0, const char* name=0, WFlags f=0);
+int index(const QIconViewItem* item) const;
+QIconViewItem* firstItem() const;
+QIconViewItem* lastItem() const;
+QIconViewItem* currentItem() const;
+void setCurrentItem(QIconViewItem* item);
+void setSelected(QIconViewItem* item, bool s, bool cb=FALSE);
+QIconViewItem* findItem(const QPoint& pos) const;
+QIconViewItem* findItem(const QString& text, uint compare=BeginsWith) const;
+void selectAll(bool select);
+void clearSelection();
+void invertSelection();
+void repaintItem(QIconViewItem* item);
+void repaintSelectedItems();
+void ensureItemVisible(QIconViewItem* item);
+QIconViewItem* findFirstVisibleItem(const QRect& r) const;
+QIconViewItem* findLastVisibleItem(const QRect& r) const;
+void clear();

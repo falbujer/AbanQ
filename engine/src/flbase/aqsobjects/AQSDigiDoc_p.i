@@ -1,0 +1,16 @@
+@AQDigiDoc(const QString& configfile=QString::null);
+int dataSignature(QByteArray* data, QByteArray* signResult, const QString& keyfile, const QString& passwd);
+int dataSignature(const QString& data, QByteArray* signResult, const QString& keyfile, const QString& passwd);
+int fileSignature(const QString& fileName, QByteArray* signResult, const QString& keyfile, const QString& passwd);
+int dataDigest(QByteArray* data, QByteArray* digestResult);
+int dataDigest(const QString& data, QByteArray* digestResult);
+int fileDigest(const QString& fileName, QByteArray* digestResult);
+int verifySignatureFile(const QString& fileName, QByteArray* signResult, const QString& certfile);
+int verifySignatureData(QByteArray* data, QByteArray* signResult, const QString& certfile);
+int verifyCertByOCSP(const QString& certfile);
+int certDigest(const QString& certfile, QByteArray* digestResult);
+int certIssuerDN(const QString& certfile, QString& issuerResult);
+int certSerialNumber(const QString& certfile, QByteArray* serialResult);
+int certRSAKeyValue(const QString& certfile, QByteArray* modResult, QByteArray* expResult);
+QByteArray encodeBase64(QByteArray* data) const;
+QByteArray decodeBase64(QByteArray* data) const;

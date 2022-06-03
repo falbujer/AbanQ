@@ -1,0 +1,11 @@
+@AQSettings();
+QStringList readListEntry(const QString& key, bool* retOk=0);
+QString readEntry(const QString& key, const QString& def=QString::null, bool* retOk=0);
+int readNumEntry(const QString& key, int def=0, bool* retOk=0);
+double readDoubleEntry(const QString& key, double def=0, bool* retOk=0);
+bool readBoolEntry(const QString& key, bool def=false, bool* retOk=0);
+bool writeEntry(const QString& key, bool value);
+bool writeEntry(const QString& key, double value);
+bool writeEntry(const QString& key, int value);
+bool writeEntry(const QString& key, const QString& value);
+bool writeEntryList(const QString& key, const QStringList& value);

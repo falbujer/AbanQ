@@ -1,0 +1,18 @@
+@QToolBox(QWidget* parent=0, const char* name=0, WFlags f=0);
+int addItem(QWidget* w, const QString& label);
+int addItem(QWidget* item, QIconSet* iconSet, const QString& label);
+int insertItem(int index, QWidget* item, const QString& label);
+int insertItem(int index, QWidget* item, QIconSet* iconSet, const QString& label);
+int removeItem(QWidget* item);
+void setItemEnabled(int index, bool enabled);
+bool isItemEnabled(int index) const;
+void setItemLabel(int index, const QString& label);
+QString itemLabel(int index) const;
+void setItemIconSet(int index, QIconSet* iconSet);
+QIconSet* itemIconSet(int index) const;
+void setItemToolTip(int index, const QString& toolTip);
+QString itemToolTip(int index) const;
+QWidget* currentItem() const;
+void setCurrentItem(QWidget* item);
+QWidget* item(int index) const;
+int indexOf(QWidget* item) const;

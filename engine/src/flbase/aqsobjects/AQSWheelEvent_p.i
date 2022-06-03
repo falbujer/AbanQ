@@ -1,0 +1,14 @@
+@QWheelEvent(const QPoint& pos, int delta, int state, Qt::Orientation orient=Vertical);
+@QWheelEvent(const QPoint& pos, const QPoint& globalPos, int delta, int state, Qt::Orientation orient=Vertical);
+int delta() const;
+QPoint pos() const;
+QPoint globalPos() const;
+int x() const;
+int y() const;
+int globalX() const;
+int globalY() const;
+uint state() const;
+uint orientation() const;
+bool isAccepted() const;
+void accept();
+void ignore();

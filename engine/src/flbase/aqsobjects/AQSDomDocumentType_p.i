@@ -1,0 +1,10 @@
+@QDomDocumentType();
+@QDomDocumentType(QDomDocumentType* n);
+virtual QString name() const;
+virtual QDomNamedNodeMap* entities() const;
+virtual QDomNamedNodeMap* notations() const;
+virtual QString publicId() const;
+virtual QString systemId() const;
+virtual QString internalSubset() const;
+virtual uint nodeType() const;
+virtual bool isDocumentType() const;

@@ -1,0 +1,13 @@
+@QCanvasText(QCanvas* canvas);
+@QCanvasText(const QString& t, QCanvas* canvas);
+@QCanvasText(const QString& t, QFont f, QCanvas* canvas);
+void setText(const QString& t);
+void setFont(const QFont& f);
+void setColor(QColor* c);
+QString text() const;
+QFont font() const;
+QColor* color() const;
+int textFlags() const;
+void setTextFlags(int f);
+virtual QRect boundingRect() const;
+virtual int rtti() const;

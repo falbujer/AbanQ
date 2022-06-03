@@ -1,0 +1,13 @@
+@AQFormSearchDB(const QString& actionName, QWidget* parent=0);
+@AQFormSearchDB(FLSqlCursor* cursor, const QString& actionName=QString::null, QWidget* parent=0);
+FLSqlCursor* cursor() const;
+QWidget* mainWidget() const;
+void setIdMDI(const QString& id);
+QString idMDI() const;
+virtual void setMainWidget(QWidget* w);
+virtual void setMainWidget();
+QImage* snapShot();
+void saveSnapShot(const QString& pathFile);
+QVariant exec(const QString& n=QString::null);
+void setFilter(const QString& f);
+bool accepted();

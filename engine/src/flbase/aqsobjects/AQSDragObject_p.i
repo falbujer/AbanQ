@@ -1,0 +1,13 @@
+bool drag();
+bool dragMove();
+void dragCopy();
+void dragLink();
+virtual void setPixmap(QPixmap* pm);
+virtual void setPixmap(QPixmap* pm, const QPoint& hotspot);
+QPixmap* pixmap() const;
+QPoint pixmapHotSpot() const;
+QWidget* source();
+virtual const char* format(int i=0) const;
+virtual QByteArray* encodedData(const char*) const;
+virtual bool provides(const char* mimeType) const;
+int serialNumber() const;

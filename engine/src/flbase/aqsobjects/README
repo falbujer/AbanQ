@@ -1,0 +1,128 @@
+NOTAS SOBRE EL SISTEMA DE CREACION DE INTERFACES
+------------------------------------------------
+
+create_skel.sh
+==============
+
+Crea un archivo de cabecera vacio con el esqueleto común para un AQSObject.
+
+Sintaxis:
+
+ create_skel.sh NOMBRE NOMBRE_CLASE_BASE TIPO_DE_AQSOBJECT
+ 
+Ejemplo:
+
+ ./create_skel.sh CanvasText CanvasItem AQSVOIDPTR
+ 
+ Creará AQSCanvasText_p.h
+
+
+pub_iface.sh
+============
+
+Rellena el esqueleto generado por create_skel, con los métodos descritos un fichero del tipo *.i
+
+Sintaxis:
+
+ pub_iface.sh NOMBRE
+
+Ejemplo:
+
+ ./pub_iface.sh CanvasText
+ 
+ 
+gen_aqs.sh
+==========
+
+Genera el fichero AQS_g.h que indica a los "wrappers" las clases disponibles para los scripts.
+
+No necesita parámetros.
+
+
+Formato de los ficheros *.i
+===========================
+
+Lo fichero .i describen la interfaz, son varias lineas cada una de las cuales es la declaracion 
+de un método del mismo modo que se declaran en C++.
+
+El fichero AQSNOMBRE_p.i describe el fichero AQSNOMBRE_p.h
+
+Generalmente basta con copiar-pegar los métodos públicos de una clase descritos en su fichero de 
+cabecera, pero hay algunas excepciones:
+
+- Las lineas que empiezan por '#' se ignoran
+- No debe haber lineas en blanco, tampoco al final del fichero
+- No se ponen los destructores
+- Si hay funciones virtuales puras se les quita el '=0' del final y no se pone ningun constructor
+- Si el nombre de un tipo lleva delante '_' y el tipo es de indirección no se aplicará el operador
+  de indirección o se creará el puntero. Ver apartado AQ_PTR_INDIRECTION.
+- Los tipos Enum en los parámetros deben ir siempre totalmente cualificados con ESPACIONOMBRE::VALOR.
+  Y cuando se devuelven siempre se debe indicar 'uint' el tipo devuelto.
+  
+  
+AQ_PTR_INDIRECTION
+==================
+
+El motor de scripts QSA gestiona todos los objetos "wrapper" como punteros. Por lo tanto sólo puede
+pasar como parámetros de funciones o recibir valores devueltos de funciones, punteros a objetos wrap
+cuando estas funciones aceptan o devuelven tipos "no nativos" implementados en los scripts.
+
+Por ejemplo, podemos tener en C++ un método void setPen(const QPen &pen) de QPainter, que recibe una 
+referencia, no un puntero.
+
+En QSA tendremos algo como esto:
+
+    var miPen = new QPen;
+    var pter = new QPainter;
+    pter.setPen(miPen);
+    
+QSA trata "miPen" como QPen*, y buscará en el objeto QPainter el método setPen(QPen* ), si no existe
+dará error.
+
+Por lo tanto en AQSPainter_p.i en vez de poner;
+
+void setPen(const QPen &pen)
+
+pondremos;
+
+void setPen(QPen *pen)
+
+Y en AQSPen_p.h añadieremos al principio el comentario:
+
+// @AQ_PTR_INDIRECTION@
+
+De esta manera pub_iface.sh al crear la implementación a setPen en AQSPainter_p.h detectará que QPen
+por lo general debe aplicar una indirección e invocará al método real de QPainter::setPen, con el 
+operador '*'; setPen(*arg).
+
+Del mismo modo con el método const QPen& pen(), devuelve una referencia pero QSA espera un puntero.
+
+En AQSPainter_p.i en vez de poner;
+
+const QPen& pen()
+
+pondremos;
+
+QPen *pen()
+
+En este caso pub_iface.sh creará un puntero QPen con 'new' que es una copia de lo devuelto por el método 
+QPainter::pen() y que será devuelto como puntero a QSA. En la implementación sería algo asi
+
+return new QPen(pter->pen());
+
+A veces puede ser que los métodos de los objetos reales sí devuelvan punteros, de tipos que hemos marcado
+como @AQ_PTR_INDIRECTION@. En tales caso para pub_iface.sh no aplique la indirección o cree punteros con new
+se debe indicar '_' delante del tipo en el fichero .i.
+
+Por ejemplo;
+
+_QPen *pen() haría  return pter->pen()
+
+QPen *pen() haría return new QPen(pter->pen());
+
+Como parámetro
+
+void setPen(QPen *pen) haría pter->setPen(*pen);
+
+void setPen(_QPen *pen) haría pter->setPen(pen);
+

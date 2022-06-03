@@ -1,0 +1,13 @@
+@QTab();
+@QTab(const QString& text);
+@QTab(QIconSet* icon, const QString& text=QString::null);
+void setText(const QString& text);
+QString text() const;
+void setIconSet(QIconSet* icon);
+_QIconSet* iconSet() const;
+void setRect(const QRect& rect);
+QRect rect() const;
+void setEnabled(bool enable);
+bool isEnabled() const;
+void setIdentifier(int i);
+int identifier() const;

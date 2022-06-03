@@ -1,0 +1,13 @@
+@QIconSet();
+@QIconSet(QPixmap* pixmap, QIconSet::Size size=QIconSet::Automatic);
+@QIconSet(QPixmap* smallPix, QPixmap* largePix);
+@QIconSet(QIconSet* other);
+void reset(QPixmap* pixmap, QIconSet::Size size);
+virtual void setPixmap(QPixmap* pixmap, QIconSet::Size size, QIconSet::Mode mode=QIconSet::Normal, QIconSet::State state=QIconSet::Off);
+virtual void setPixmap(const QString& fileName, QIconSet::Size size, QIconSet::Mode mode=QIconSet::Normal, QIconSet::State state=QIconSet::Off);
+QPixmap* pixmap(QIconSet::Size size, QIconSet::Mode mode, QIconSet::State state=QIconSet::Off) const;
+QPixmap* pixmap() const;
+bool isGenerated(QIconSet::Size size, QIconSet::Mode mode, QIconSet::State state=QIconSet::Off) const;
+void clearGenerated();
+bool isNull() const;
+void detach();

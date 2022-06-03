@@ -1,0 +1,16 @@
+@QEventLoop(QObject* parent=0, const char* name=0);
+void processEvents(QEventLoop::ProcessEventsFlags flags, int maxTime);
+virtual bool processEvents(QEventLoop::ProcessEventsFlags flags);
+virtual bool hasPendingEvents() const;
+virtual void registerSocketNotifier(QSocketNotifier* notifier);
+virtual void unregisterSocketNotifier(QSocketNotifier* notifier);
+void setSocketNotifierPending(QSocketNotifier* notifier);
+int activateSocketNotifiers();
+int activateTimers();
+int timeToWait() const;
+virtual int exec();
+virtual void exit(int retcode=0);
+virtual int enterLoop();
+virtual void exitLoop();
+virtual int loopLevel() const;
+virtual void wakeUp();

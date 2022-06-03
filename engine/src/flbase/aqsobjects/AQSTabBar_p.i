@@ -1,0 +1,14 @@
+@QTabBar(QWidget* parent=0, const char* name=0);
+int addTab(QTab* newTab);
+int insertTab(QTab* newTab, int index=-1);
+void removeTab(QTab* t);
+void setTabEnabled(int id, bool enabled);
+bool isTabEnabled(int id) const;
+QTab* tab(int id) const;
+QTab* tabAt(int index) const;
+int indexOf(int id) const;
+void layoutTabs();
+QTab* selectTab(const QPoint& p) const;
+void removeToolTip(int index);
+void setToolTip(int index, const QString& tip);
+QString toolTip(int index) const;

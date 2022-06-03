@@ -1,0 +1,10 @@
+@QNetworkProtocol();
+virtual void setUrl(QUrlOperator* u);
+virtual void setAutoDelete(bool b, int i=10000);
+bool autoDelete() const;
+virtual int supportedOperations() const;
+virtual void addOperation(QNetworkOperation* op);
+QUrlOperator* url() const;
+QNetworkOperation* operationInProgress() const;
+virtual void clearOperationQueue();
+virtual void stop();

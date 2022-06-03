@@ -1,0 +1,11 @@
+@QKeyEvent(QEvent::Type type, int key, int ascii, int state, const QString& text=QString::null, bool autorep=FALSE, ushort count=1);
+int key() const;
+int ascii() const;
+uint state() const;
+uint stateAfter() const;
+bool isAccepted() const;
+QString text() const;
+bool isAutoRepeat() const;
+int count() const;
+void accept();
+void ignore();

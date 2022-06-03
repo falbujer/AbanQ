@@ -1,0 +1,10 @@
+uint remove(QCanvasItem* x);
+void clear();
+int size() const;
+bool empty() const;
+bool isEmpty() const;
+QCanvasItem* first();
+QCanvasItem* last();
+int findIndex(QCanvasItem* x) const;
+int contains(QCanvasItem* x) const;
+int count() const;

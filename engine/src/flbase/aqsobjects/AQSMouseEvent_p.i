@@ -1,0 +1,14 @@
+@QMouseEvent(QEvent::Type type, const QPoint& pos, int button, int state);
+@QMouseEvent(QEvent::Type type, const QPoint& pos, const QPoint& globalPos, int button, int state);
+QPoint pos() const;
+QPoint globalPos() const;
+int x() const;
+int y() const;
+int globalX() const;
+int globalY() const;
+uint button() const;
+uint state() const;
+uint stateAfter() const;
+bool isAccepted() const;
+void accept();
+void ignore();

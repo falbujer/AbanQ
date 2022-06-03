@@ -1,0 +1,18 @@
+@QColor();
+@QColor(QRgb rgb, uint pixel=0xffffffff);
+@QColor(int r, int g, int b);
+@QColor(int x, int y, int z, QColor::Spec colorSpec);
+@QColor(const QString& name);
+@QColor(QColor* c);
+bool isValid() const;
+QString name() const;
+void setNamedColor(const QString& name);
+QRgb rgb() const;
+void setRgb(int r, int g, int b);
+void setRgb(QRgb rgb);
+int red() const;
+int green() const;
+int blue() const;
+void setHsv(int h, int s, int v);
+QColor* light(int factor=150) const;
+QColor* dark(int factor=200) const;

@@ -1,0 +1,14 @@
+@QNetworkOperation(QNetworkProtocol::Operation operation, const QString& arg0, const QString& arg1, const QString& arg2);
+@QNetworkOperation(QNetworkProtocol::Operation operation, QByteArray* arg0, QByteArray* arg1, QByteArray* arg2);
+void setState(QNetworkProtocol::State state);
+void setProtocolDetail(const QString& detail);
+void setErrorCode(int ec);
+void setArg(int num, const QString& arg);
+void setRawArg(int num, QByteArray* arg);
+uint operation() const;
+uint state() const;
+QString arg(int num) const;
+QByteArray rawArg(int num) const;
+QString protocolDetail() const;
+int errorCode() const;
+void free();

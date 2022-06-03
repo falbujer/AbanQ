@@ -1,0 +1,895 @@
+!! 26/06/2013 2.5:
+* Developer/User: Soporte para conexione seguras SSL/TLS en el cliente de correo AQSmtpClient, nuevos métodos; setPort,setUser,setPassword,setConnectionType y setAuthMethod
+!! 19/06/2013 2.5:
+* Developer/User: Nueva llamada desde los formularios a la función de script "preloadMainFilter". Para obtener el filtro principal del cursor y aplicarlo antes del init, evitando así hacer una consulta completa del cursor y con todos los registros, en el evento "show".
+!! 18/06/2013 2.5:
+* Developer/User: Corregido error de tamaño del desplegable de autocomplementado de campos que se producia en ocasiones en Windows
+* Developer/User: Corregidos varios errores de violación de segmento en QSA
+* Developer/User: Nuevas propiedades "defaultRowHeight" y "defaultColumnWidth" en la clase QTable, para establecer valores por defecto para el alto y ancho de fila y columna.
+* Developer/User: Nueva barra de formato de texto para los campos de los formularios de tipo "stringlist" y con la propiedad "textFormat" igual "RichText".
+* Developer/User: Nuevo parámetro "pos" el la llamada a la función que calcula los campos de tipo "fullycalculated", que contiene la posición del registro que se está calculando.
+!! 11/06/2013 2.5:
+* Developer/User: Nueva funcionalidad en exportación a ODS para detectar automáticamente hiper-enlaces
+!! 07/06/2013 2.5:
+* Developer/User: Corregido error en el driver PostgreSQL que se producía al escribir datos de longitud mayor a 32760 bytes en campos tipo bytearray
+!! 05/06/2013 2.5:
+* Developer/User: Corregido error de posicionamiento de registro en SqlCursor::atFrom y mejora del rendimiento
+!! 03/06/2013 2.5:
+* Developer/User: Eliminado error al generar ODS a partir de un TableDB. El cursor devolvía un conjunto erróneo de registros.
+!! 21/05/2013 2.5:
+* Developer/User: Nueva sistema para detectar cuando la aplicación está ociosa. Ver Application::aqAppIdle()
+* Developer/User: Nueva sistema para detectar transacciones que han quedado abiertas de forma inconsistente. Ver Application::checkAndFixTransactionLevel()
+!! 18/05/2013 2.5:
+* Developer/User: Mejoras en el refresco de la rejilla DataTable. Eliminado dibujado erróneo en Windows
+!! 09/04/2013 2.5:
+* Developer/User: Mejora en formularios de busquedas abiertos a partir de un FLFieldDB; pone el foco en el campo de búsqueda y si el FLFielDB que lo invoca tiene un texto intenta posicionarse en el registro mas próximo que contenga ese texto
+* Developer/User: Solucionado error en Windows que producía violación de segmento al cerrar el visor de informes mientras imprimía
+* Developer/User: Solucionado error cuando en los scripts se hacia un disconnect dentro de la funcion que recibía la señal
+!! 06/04/2013 2.5:
+* Developer/User: Solucionado error de posicionamiento de registro en FLDataTable en sesiones NX
+!! 14/03/2013 2.5:
+* Developer/User: Solucionado error en control de acceso que abría acciones de un usuario anterior con mas permisos que el actual
+!! 28/02/2013 2.5:
+* Developer/User: Solucionado error de chequeo de integridad cuando se creaba automáticamente una relación M1 con un cursor tipo consulta
+* Developer/User: Mejoras en el autocomplementado en FLFielDB
+!! 20/02/2013 2.5:
+* Developer/User: Corregido error en el comportamiento de la tecla F4 (autocomplementado) en Windows
+!! 08/02/2013 2.5:
+* Developer/User: Corregido comportamiento de la tecla F10 en Windows. Intentaba activar la barra de menú e interrumpía el bucle de eventos.
+* Developer/User: Nueva propiedad "echoMode" en los FieldDB, para establecer el modo edición (Normal, NoEcho, Password)
+!! 24/01/2013 2.5:
+* Developer/User: Corregido error en campos asociados cuando el tipo no era String
+* Developer/User: Corregido error en cliente Smtp que impedia enviar correos sólo con el cuerpo, sin incluir adjuntos
+* Developer/User: Corregidos errores en functionGetColor
+!! 14/01/2013 2.5:
+* Developer/User: Corregido error de disminución de fuente al imprimir en Windows y sobrepasar cierto limite de hojas
+* Developer/User: Corregido el numero de copias erróneo al imprimir en Windows
+!! 08/01/2013 2.5:
+* Developer/User: Corregido error en el cálculo del numero de registro de una consulta en el driver de PostgreSQL
+!! 11/12/2012 2.5:
+* Developer/User: Corregido error de asignación de interfaces de scripts a formularios. Ahora el objeto formulario se asigna al formulario activo.
+* Developer/User: Nuevo sistema de carga de scripts mejorado. Ahora no carga los FLFormSearchDB, en su lugar reutiliza los FLFormDB
+* Developer/User: Mejoras en FLPosPrinter para usar directamente el puerto de la impresora cuando sea posible
+* Developer/User: Corregido error en la interpretación del fichero XML de acciones cuando la primera etiqueta de una acción no era <name>
+!! 03/12/2012 2.5:
+* Developer/User: Nueva función para navegar por tablas relacionadas de los FLTableDB haciendo clic con el botón derecho del ratón
+* Developer/User: Ahora se añade en el "What's this" de los formularios el texto de la etiqueta <description> de la acción asociada
+* Developer/User: Ahora en la barra de título de los formularios aparece el alias/caption de la acción en vez del de la tabla
+!! 29/11/2012 2.5:
+* Developer/User: Mejora para utilizar Ghostscript 64 bits en Windows64, si está disponible
+* Developer/User: Corregido error en número de decimales al exportar informes a ODS
+* Developer/User: Nueva consola de mensajes
+!! 16/11/2012 2.5:
+* Developer/User: Nuevo sistema para la regeneración de tablas
+!! 14/11/2012 2.5:
+* Developer/User: Incluida comprobación paranoica para no regenerar las tablas que contengan un campo 'check' (multiselección) en sus metadatos
+!! 09/11/2012 2.5:
+* Developer/User: Simplificado el texto de las barras de título de los formularios
+!! 08/11/2012 2.5:
+* Developer/User: Solucionado error en FLTableDB::setOrderCols cuando se incluian campos que no son visibles o no existen
+!! 06/11/2012 2.5:
+* Developer/User: Importantes mejoras en los driver SQL para mejorar su rendimiento
+* Developer/User: Constructores de copia para las clases de metadatos
+!! 26/10/2012 2.5:
+* Developer/User: Nuevos métodos en AQSmtpClient; setReplyTo,setCC,setBCC,setOrganization y setPriority. Con la posibilidad de añadir listas de destinatarios separados por ','
+* Developer/User: Disponible AQSmtpClient en los AQSObjects
+* Developer/User: Nueva propiedad en la configuración email/addFooter para indicar si FLSmtpClient debe incluir el pie del mensaje
+* Developer/User: Mejorado FLSmtpClient para incluir mas mensajes y códigos del estado del envío.
+* Developer/User: Añadido nuevo campo en el parámetro de la linea de comandos -silentconn para pasar opciones de conexión a la base de datos
+!! 16/10/2012 2.5:
+* Developer/User: Soporte para PostgreSQL 9.2
+* Developer/User: Ahora al iniciar borra de la cache ficheros temporales
+* Developer/User: Corregido error en el formateo de fechas en FLSqlDriver::formatValue y FLSqlDriver::formatValueLike
+!! 11/10/2012 2.5:
+* User: Mejoras y modificaciones para poder compilar binarios de 64 bits para Windows
+!! 09/10/2012 2.5:
+* Developer/User: Mejora en regeneración de tablas, ahora detecta cuando se cambia la longitud de un campo
+!! 05/10/2012 2.5:
+* User: Actualizada librería pthreads a la versión 2.9.1
+* Developer/User: Mejora en drivers de las bases de datos para elevar excepciones a los scripts cuando suceda un error SQL
+* Developer/User: Nuevo parámetro para conexiones a base datos, para pasar opciones al driver en una cadena separada po ';'
+!! 26/09/2012 2.5:
+* Developer/User: Corregido error en número de decimales al exportar FLTableDB's a ODS 
+!! 19/09/2012 2.5:
+* Developer/User: Incluida exportación de campos de tipo imagen al exportar FLTableDB's a ODS 
+* Developer/User: Modificada la exportación de informes a ODS. En vez de crear una hoja por cada página, se intenta meter el máximo número de páginas por hoja, sólo se añade una nueva hoja cuando ya no quedan mas filas en la hoja actual
+* Developer/User: Eliminado el límite de paginas a imprimir en Kugar. Ahora un informe puede tener un número ilimitado de páginas
+!! 12/09/2012 2.5:
+* Developer/User: Corregido error; AQUtil.sqlSelect devuelve undefined cuando se hace un SUM de un campo tipo int y el resultado es < 0
+* Developer/User: Mejora en Windows a la hora de enviar a impresora
+!! 27/08/2012 2.5:
+* Developer/User: Nuevo método FLSqlCursor::changeConnection, para mover un cursor de una conexión de base de datos a otra
+!! 24/08/2012 2.5:
+* Developer/User: Corregido error en SqlLite al exportar modulos a disco
+* Developer/User: Corregido error en SqlLite al detectar versión de los módulos
+!! 24/07/2012 2.5:
+* Developer/User: Incluido chequeo en scripts para avisar cuando una base hereda de ella misma
+* Developer/User: Eliminada violacion de segmento que se producia en el doble click en lo divisores de las cabeceras de los componetes gráficos de tablas
+* Developer/User: Inicio versión 2.5
+!! 23/07/2012 2.4:
+* Developer/User: Nuevas funciones sys.isUserBuild() y sys.isDeveloperBuild()
+* Developer/User: Corregida violación de segmento que se producía a veces al reiniciar y recargar scripts
+* Developer/User: Corregidos varios errores de gestión de memoria en Windows
+* Developer/User: Corregido error en filtros de AQTableDB que colgaba la aplicación. El filtro se aplicaba recursivamente en el evento de refresco
+!! 02/07/2012 2.4:
+* Developer/User: A partir de ahora en los títulos de las ventanas aparece primero el nombre de la base de datos
+!! 08/06/2012 2.4:
+* Developer/User: Nuevo comportamiento de botón cancelar en formulario, ahora pregunta siempre, y está separado del aceptar para evitar errores
+* Developer/User: Solucionado error en QSA que producia violación de segmento al intentar enviar eventos a objetos que se habían borrado
+!! 30/04/2012 2.4:
+* Developer/User: Nuevas etiquetas para metadatos <fullycalculated> para calcular campos al vuelo en cursores y <trimmed> para leer campos desde la base de datos eliminando espacios a la derecha
+!! 18/04/2012 2.4:
+* Developer/User: Incluida exportación de informes a hojas de cálculo ODS
+!! 16/04/2012 2.4:
+* Developer/User: Mejora en Kugar para exportar datos a CSV. Ahorro de memoria, sólo se calculan los CSV cuando se solicitan.
+!! 13/04/2012 2.4:
+* Developer/User: Solucionado error de refresco en FLDataTable cuando se establecia un filtro persistente
+!! 21/03/2012 2.4:
+* Developer/User: Disponibles QSqlSelectCursor en los AQSObjects
+* Developer/User: Ampliada API de AQSSqlCursor
+* Developer/User: Nuevas señales globales del objeto aplicación para notificar el inicio, aceptación y cancelación de las transacciones de primer nivel
+!! 14/03/2012 2.4:
+* Developer/User: Corregido cálculo erróneo de tamaño de página en MacOSX
+!! 28/02/2012 2.4:
+* Developer/User: Nuevo método AQS.setTabOrder (equivalente a QWidget::setTabOrder)
+* Developer/User: Corregido bug en FLReportViewer, que podia producir violación de segmento al cerrar el visor (sobre todo en Windows)
+!! 10/01/2012 2.4:
+* Developer/User: Corregido error en driver de PostgreSQL para versiones del servidor >= 9.0. Almacenaba secuencias UTF8 no válidas en campos tipo ByteArray.
+* Developer/User: Corregido error en driver de PostgreSQL al borrar claves creadas por defecto
+* Developer/User: Soporte para ACL en nueva interfaz (aqaplication.qs)
+!! 03/01/2012 2.4:
+* Developer/User: Nuevos métodos QDir::mkpath y QDir::rmpath, para crear y borrar la ruta de un directorio incluyendo automáticamente los directorios padre si es necesario
+!! 16/12/2011 2.4:
+* Developer/User: Disponible QSInterpreter en los AQSObjects
+* Developer/User: Nueva funcion sys.questionMsgBox, que muestra un cuadro diálogo con una pregunta y con un 'check' para recordar si se debe mostrar otra vez
+* Developer/User: Nueva función en FLTableDB para exportar a una hoja de cálculo ODS su contenido
+* Developer/User: Nuevas clases AQOds* para crear hojas de cálculo en el formato OpenOffice/ODS
+!! 12/12/2011 2.4:
+* Developer/User: Solucionado error en control de acceso en tablas con campos tipo Unlock. Modificaba los metadatos a sólo lectura para todos los cursores cuando uno de ellos estaba posicionado en un registro bloqueado.
+* Developer/User: Nuevas clases AQZipReader y AQZipWriter para manejar archivos ZIP
+* Developer/User: Nuevo método AQS.xsltproc para procesar plantillas XSLT
+!! 30/11/2011 2.4:
+* Developer/User: Nuevo método FLFieldDB::setPartDecimal, para establecer dinámicamente el número de decimales de un campo
+!! 21/11/2011 2.4:
+* Developer/User: Disponibles QDir, QProcess en los AQSObjects
+* Developer/User: Nuevos métodos AQSql::select y AQSql::selectForUpdate
+!! 16/11/2011 2.4:
+* Developer/User: Utilidad para hacer copia de seguridad de la base de datos
+* Developer/User: Nueva etiqueta en metadatos; <detectLocks> , para activar/desactivar la comprobación de riesgos de bloqueo 
+* Developer/User: Nueva etiqueta en metadatos; <concurWarn> , para activar/desactivar la comprobación de colisión en la concurrencia
+* Developer/User: Nuevo aviso de colisión en la concurrencia al validar formulario de edición registro (FLFormRecordDB)
+* Developer/User: Nuevo método FLSqlCursor::concurrencyFields, que comprueba si hay una colisión de campos editados por dos usuarios simultáneamente
+* Developer/User: Corregido error de refresco al editar, ver, copiar registro en FLSqlCursor
+!! 07/11/2011 2.4:
+* Developer/User: Disponible QUrl y QUrlInfo en los AQSObjects
+!! 04/11/2011 2.4:
+* Developer/User: Disponible QSplitter en los AQSObjects
+* Developer/User: Disponibles QTextCodec, QTextDecoder y QTextEncoder en los AQSObjects
+* Developer/User: Nuevos métodos opInXX y opOutXX en AQSTextStream y AQSDataStream para simular flujos de entrada y salida
+* Developer/User: Disponible QFile en los AQSObjects
+* Developer/User: Nueva función de ayuda sys.launchCommand, para ejecutar una aplicación. Devuelve false si esa aplicación no se puede ejecutar, útil para comprobar si existen una aplicación en el sistema
+!! 03/11/2011 2.4:
+* Developer/User: Nueva función sys.openUrl para abrir direcciones y documentos en cualquier sistema operativo de forma transparente
+* Developer/User: Disponibles varias funciones de manejo de QByteArrays en AQS para scripts: toHex, fromHex, toBase64, fromBase64, compress,  uncompress, sha1
+* Developer/User: Disponible AQS.encryptInternal y AQS.decryptInternal en scripts para encriptar y desencriptar QByteArrays
+* Developer: Nuevo subsitema XML-RPC, que permite desplegar servidores XML-RPC para atender llamadas remotas a funciones de scripts
+!! 02/11/2011 2.4:
+* Developer/User: Disponible AQReportEngine, AQJasperEngine y AQReportViewer en los AQSObjects
+* Developer/User: Disponible AQVar en los AQSObjects
+* Developer/User: Incluida compilación de libdigidoc, libxml2, libcrypto y libssl para MacOSX
+* Developer/User: Incluida compilación de hoard para MacOSX
+!! 17/10/2011 2.4:
+* Developer/User: Mejora de visualización de numeros en FLTableDB y FLFieldDB formateados según la localización del sistema
+* Developer/User: Nueva función de ayuda "runTransaction" en sys.qs, para encapsular una función dentro de una transacción de forma automática
+* Developer/User: Solucionado error que podía producir violación de segmento cuando se cerraba o destruia un formulario en su inicialización, en la función "init".
+!! 10/10/2011 2.4:
+* Developer/User: Solucionado problema con conversión de clases FL -> AQ que impedia hacer "wrapper" cuando se esperaba una clase AQ en vez de una FL
+* Developer/User: Disponible QCanvas en los AQSObjects
+!! 05/10/2011 2.4:
+* Developer/User: Corregido error en FLTableDB al filtrar por campos con el mismo alias, siempre utilizaba el primero que encontraba e ignoraba el resto 
+* Developer/User: Corregido error en atributo ChangeHeight de informes Kugar en MacOSX
+!! 04/10/2011 2.4:
+* Developer/User: Corregido salvaguarda errónea de las posiciones de los formularios FLFormXXDB en Windows
+!! 03/10/2011 2.4:
+* Developer/User: Corregido error en regeneración de tablas al intentar insertar la cadena 'NULL' en campos que no admiten nulos y longitud<4
+* Developer/User: Corregido error en búsquedas de FLTableDB con todos los campos ('*') que impedia que se aplicara el filtro princial (mainFilter)
+* Developer/User: Corregida gramática de script para solucionar violación de segmento con expresiones del tipo IDENT:IDENT=
+!! 26/09/2011 2.4:
+* Developer/user: Soporte para enteros largos sin signo en valores hexadecimales y octales en los scripts
+* Developer/User: Mejora en analizador lexico para el balanceo de parentesis y punto-coma automático
+* Developer/User: Optimizaciones en busquedas del analizador lexico
+!! 16/09/2011 2.4:
+* Developer/User: Nuevos métodos en AQSByteArray, setString() y string(), para establecer y obtener el contenido como cadena de texto
+* Developer/User: Nuevos métodos en AQSByteArray para cifrar/descifrar con AES 256
+* Developer/User: Nueva acción en Sistema para importar módulos sin certificar
+!! 16/08/2011 2.4:
+* Developer/User: Mejora en el autocomplementado de campos relacionados, FLFieldDB
+* Developer/User: Hiperlink para edición campos M1, FLFieldDB
+!! 21/04/2011 2.4:
+* Developer/User: Solucionado bug en Windows que impedía cargar estilos SVG en informes
+!! 05/04/2011 2.4:
+* Developer/User: Soporte para PostgreSQL 9.0
+!! 15/03/2011 2.4:
+* Developer/User: Mejora de estabilidad para Windows 7, reescrito sistema de gestión de memoria y eventos
+!! 24/02/2011 2.4:
+* Developer: Incluido compilador, depurador y empaquetador de scripts de AbanQ v3
+* Developer: Incluido IDE integrado de desarrollo de AbanQ v3
+* Developer/User: Unificado el sistema de compilación para las tres plataformas que soporta AbanQ; Linux, MacOSX y Windows
+* Nuevo sistema de versiones se reducen a dos; AbanQ Developer y AbanQ User
+!! 22/01/2011 2.4:
+* Incluido AQSObjects el nuevo sistema de interfaz de scripts de AbanQ v3 
+!! 19/01/2011 2.4:
+* Mejora en FLDiskCache para separar ficheros por bases de datos y codificación local
+!! 16/01/2011 2.4:
+* Nueva clase AQSignalMapper para scripts. Es una interfaz para  QSignalMapper.
+* Nueva clase AQObjectQueryList para scripts. Es una interfaz para QObject::queryList.
+!! 17/01/2011 2.4:
+* Nuevo objeto estático para scripts AQUtil que reemplaza a FLUtil
+!! 05/01/2011 2.4:
+* Nuevo método FLReportViewer::setReportPages() para establecer directamente la coleccion de paginas (FLReportPages) a mostrar por el visor
+* Nueva clase FLJasperEngine como motor de informes para JasperReports. Necesita el plugin AQReports.
+* Nueva clase FLReportPages para gestionar colecciones de paginas generadas por los motores de informes (Motor Kugar y Motor JasperReports)
+!! 28/12/2010 2.4:
+* Nuevo sistema de traduccion multilenguaje para cargar dinámicamente traducciones a distintos idiomas. Esto permite actualizar los textos de informes, formularios y de cualquier mensaje, a distintos idiomas en tiempo de ejecución y sin necesidad de reiniciar la aplicacion. Ver FLApplication::setMultiLang.
+* Nuevo método FLApplicationInterface::toXmlReportData para generar un documento XML con los datos de una consulta SQL en formato para Kugar
+!! 22/12/2010 2.4:
+* Nuevos metodos en reportData() y reportTemplate() en FLReportViewer
+!! 20/12/2010 2.4:
+* Posibilidad de exportar a PDF en distintos tamaño de papel, no solo en A4.
+!! 23/11/2010 2.4:
+* Solucionado error en FLTableDB para filtros sobre tablas provenientes de consultas
+!! 27/09/2010 2.4:
+* Nueva funcionalidad de precarga de clases java en plugin AQReports
+!! 22/09/2010 2.4:
+* Nuevo metodo para scripts sys.scalePixmap, ver FLApplicationInterface::scalePixmap
+!! 17/06/2010 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en FLManager::createTable. No se hacia la comprobacion correcta de si la tabla existe o no antes de crearla
+* Nuevos metodos FLTableDB::rowHeight, FLTableDB::columnWidth, FLTable::rowHeight y FLTable::columnWidth
+* Mejorado el sistema de compilación para hacer a los binarios reubicables en cualquier directorio e independientes del directorio de instalación
+!! 16/06/2010 2.3 Mantenimiento y Prelanzamiento:
+* Nuevos metodos FLTable::setPixmap y FLTable::pixmap
+* Nuevos metodos FLTableDB::setRowHeight y FLTable::setRowHeight
+!! 15/06/2010 2.3 Mantenimiento y Prelanzamiento:
+* Opción 'Recordar contraseña' en el cuadro de dialogo de conexión
+!! 09/06/2010 2.3 Mantenimiento y Prelanzamiento:
+* Nuevo metodo FLUtil::findFiles. Para buscar ficheros recursivamente en las rutas indicadas y según el patrón indicado.
+* Soporte preliminar para utilizar el plugin de AbanQ v3 de integración con JasperReports. Nueva clase FLJasperViewer.
+!! 04/06/2010 2.3 Mantenimiento y Prelanzamiento:
+* Nuevo metodo sys.addDatabase para añadir una base de datos a las conexiones disponibles utilizando los datos de otra conexión 
+* Nueva propiedad FLTableDB::functionGetColor para establecer el nombre de una funcion de script a invocar para obtener el color y estilo de las filas y celdas
+* Nuevo metodo FLSmtpClient::addTextPart para añadir partes de texto con diferentes formatos MIME
+* Mejora en FLSmtpClient::addAttachment para poder indicar un ID del fichero. Esto permite incrustar ese fichero en mensajes de tipo HTML
+!! 02/06/2010 2.3 Mantenimiento y Prelanzamiento:
+* Nueva propiedad FLTableDB::showAllPixmaps para mostrar el contenido de los campos tipo pixmap en todas las filas del componente
+* Mejora para recordar el estado de maximizado/minimizado de los formularios dentro del MDI
+* Optimizacion en FLApplication::call, matiene cache de nombres de funciones para no repetir la comprobacion de si existen o no
+* Nueva opcion de configuracion DBA/rememberPasswd, para establecer si se debe recordar o no la contraseña de conexion
+* Nueva opcion de configuracion email/footerText, para establecer el fichero con el texto a enviar en el pie de los email
+* Nueva opcion de configuracion email/mailLogo, para establecer el fichero de logo a enviar en el pie de los email
+* Solucionado error de refresco en FLFieldDB cuando se utilizaba setFilter en un componente ya actualizado mediante setMapValue
+!! 31/05/2010 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en FLTableDB::setOrderCols. No tenia efecto cuando el componente estaba oculto
+* Mejora del tratamiento de errores sql a bajo nivel
+* Solucionado error al eliminar registros en FLTableDB cuando esta en modo multiseleccion
+!! 28/05/2010 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en FLTableDB que impedia establecer filtros para campos del tipo StringList y tipo Unlock
+* Solucionado error de violacion de segmento al reiniciar filtro en FLTableDB
+* Mejora en Kugar para poder imprimir imagenes en alta resolucion
+!! 25/05/2010 2.3 Mantenimiento y Prelanzamiento:
+* Poder asociar al FLReportViewer un objeto DomDocuemnt de fichero kut directamente, sin necesidad de que sea un fichero de flfiles.
+* Poder especificar el tipo MIME de los correos. Esto es para poder incluir formato html en los correos de marketing (nueva función setMimeType de FLSMTPClient).
+* Solucionados errores de codificación de caracteres en driver MySQL
+* Nuevo método FLTableDB::setColumnWidth
+!! 30/04/2010 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en control de acceso para no poder eliminar registros en controles tabla dentro de formularios con persmiso de solo lectura
+* Posiblidad de conexión de forma silenciosa desde la linea de comandos; argumento -silentconn
+!! 26/04/2010 2.3 Mantenimiento y Prelanzamiento:
+* Nuevo metodo FLSqlCursor::msgCheckIntegrity para obtener el mensaje que describe el fallo del chequeo de integridad, si existe
+* Nuevos metodos de ayuda para scripts FLUtil::isPrimaryKey, FLUtil::isCompoundKey, FLUtil::fieldDefaultValue y FLUtil::formatValue
+!! 23/02/2010 2.3 Mantenimiento y Prelanzamiento:
+* Modificado cliente de correo para que no adjunte como fichero el cuerpo del mensaje
+!! 25/01/2010 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error que impedia redimensionar formularios en Windows
+* Mejora para guardar y recordar entre sesiones la posicion del formulario visor de informes
+* Solucionado error en dialogo de impresion en Windows que impedia seleccionar el rango de paginas a imprimir
+!! 22/01/2010 2.3 Mantenimiento y Prelanzamiento:
+* Mejora para guardar y recordar entre sesiones la posicion de los formularios dentro del MDI
+* Mejora para crear automáticamente barras de desplazamiento cuando el formulario tiene un tamaño mayor que la pantalla
+* Actualizacion de Hoard a version 3.8
+!! 13/12/2009 2.3 Mantenimiento y Prelanzamiento:
+* Incluida libreria DigiDoc para la firma y verificacion electronica de documentos, soporta los estandares XML-DSIG y XadES
+!! 18/09/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionada violación de segmento que se producia al abrir un formulario maestro cuando aun no estaba listo el espacio de trabajo ( FLApplication::openMasterFrom )
+!! 08/09/2009 2.3 Mantenimiento y Prelanzamiento:
+* Nuevo método FLReportViewer::rptViewerReparent para poder incrustar el visor completo dentro de un marco de un formulario personalizado
+* Includidas macros de traduccion para los literales usados para convertir cantidades monetarias a su enunciado hablado ( enLetraMoneda ).
+* Corregidas macros de traducciones.
+* Solucionado error en FLTableDB::setOrderCols. No tenia efecto cuando existia una columna de chequeo o seleccion.
+* Eliminada cache de interfaces de componentes de formularios. La mejora de velocidad era minima e introducia inestabilidad cuando se llenaba la cache.
+!! 12/07/2009 2.3 Mantenimiento y Prelanzamiento:
+* Mejorado FLReportViewer para poder ser usado en visores de informes con formularios personalizados
+!! 03/07/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en busquedas dentro de FLTableDB para tablas provenientes de una consulta
+!! 03/06/2009 2.3 Mantenimiento y Prelanzamiento:
+* Optimización del uso de memoria en la creación de informes para evitar "Stack Overflow" en Windows
+!! 28/05/2009 2.3 Mantenimiento y Prelanzamiento:
+* Corregido un mal funcionamiento en Windows para columnas de chequeo/seleccion de registros en componentes del tipo FLTable 
+!! 18/05/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en FLSqlCursor::isLocked. Siempre indicaba registro bloqueado cuando el buffer aún no estaba listo.
+!! 23/04/2009 2.3 Mantenimiento y Prelanzamiento:
+* Nueva señal FLForm*::formReady que indica que el formulario está completamente inicializado y listo para usarse.
+* Nuevo componente FLTable para formularios. Extiende QTable, para poder establecer el color de las celdas.
+!! 22/04/2009 2.3 Mantenimiento y Prelanzamiento:
+* A partir de ahora ya "se acuerda" de la posición y tamaño de todos los formularios entre distintas sesiones.
+!! 22/04/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error que a veces producia que se estableciera de forma incorrecta el prefijo del nombre de la tabla en los nombres de los campos de un cursor procedente de una consulta 
+* Mejora para no generar campos sobrantes en cursores procedentes de una consulta. Por David Pinelo.
+!! 14/04/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en la destrucción de los formularios que eliminaba el objeto asignado a la interfaz de scripts, cuando este no correspondía al formulario que se quiere destruir.
+!! 06/04/2009 2.3 Mantenimiento y Prelanzamiento:
+* Disponibles para scripts las señales de FLFieldDB para pulsación de teclas especiales; keyF2Pressed,keyF4Pressed,keyReturnPressed, 
+!! 23/03/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en la aplicación de reglas de control de accesso sensibles al contexto
+!! 16/03/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en Windows que establecía incorrectamente el número de copias a imprimir de un informe.
+!! 12/03/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error de refresco de cursores relacionados. El filtro persistente no se inicializaba correctamente 
+* Restablecido método FLSqlQuery::orderBy eliminado por error
+!! 09/03/2009 2.3 Mantenimiento y Prelanzamiento:
+* Mejora para poder indicar un separador de la lista de campos de una consulta utilizando FLSqlQuery::setSelect
+* Solucionada violación de segmento cuando se intentaba abrir el editor de scripts sobre un fichero recien creado 
+!! 05/03/2009 2.3 Mantenimiento y Prelanzamiento:
+* Corregido error de refresco y búsquedas en FLDataTable para cursores creados desde una consulta
+!! 03/03/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionada violación de segmento en FLTable::setText cuando se referenciaba a una celda fuera del rango de la tabla
+* Corregidos métodos duplicados en FLSqlQueryInterface
+* Corregido el cálculo del alto de una sección de los informes con etiquetas del tipo AddOnFooter
+!! 25/02/2009 2.3 Mantenimiento y Prelanzamiento:
+* Solucionado error en aplicación de reglas de control de acceso al restaurar la sesión anterior
+* Corregido error que no permitia desbloquear registros en modo de acceso de edición.
+!! 13/02/2009 2.3 Mantenimiento y Prelanzamiento:
+* Eliminado mensaje emergente cansino que ejecutaba el autocomplementado automático tras un tiempo de inactividad
+* Corregido error en regeneracion de tablas que actualizaba siempre a NULL campos con longitud 0 y con un valor por defecto
+!! 05/02/2009 2.3 Mantenimiento y Prelanzamiento:
+* Corregido error en el tratamiento de caracteres con secuencia de escape en drivers de bases de datos
+* Prelanzamiento Experimental: Backport de AbanQ v3. Sistema de control de acceso sensible al contexto
+!! 16/12/2008 2.3 Mantenimiento y Prelanzamiento:
+* Corregido error en escalado de fuentes para impresión en Windows
+* Prelanzamiento Experimental: Backport de AbanQ v3. Soporte para estilos SVG en informes
+!! 26/11/2008 2.3 Matenimiento y Prelanzamiento:
+* Prelanzamiento Experimental: Backport de AbanQ v3. Sistema de detección de bloqueos. Sólo para PostgreSQL.
+* Solucionado error de violacion de segmento al cerrar/abrir formularios maestros
+* Fin rama 2.x. Inicio rama Mantenimiento y Prelanzamiento
+!! 28/10/2008 version 2.3:
+* Version 2.3 cerrada
+* Solucionado error de filtrado cuando existían alias de campos duplicados.
+* Completado "automágico" pulsando F4, en campos de texto de los formularios. Pruébalo y repetirás.
+* Mejora propuesta en bug #2255641 abanq2.3: patch: make sending of logo in mails configurable. Parche aplicado de Mathias B.
+* Solucionado bug #2255613 abanq2.3: patch: fix helo string of mailer. Parche aplicado de Mathias B.
+* Corregido error en MySQL que bloqueaba varios usuarios. No se habrían las dos conexiones necesarias para hacer "commits" fuera de transacción debido a un error en el nombre del driver.
+!! 24/10/2008 version 2.3:
+* Incluido nuevos metodos en FLReportViewer para establecer resolucion y tamaño de pixel en los informes
+!! 17/10/2008 version 2.3:
+* Solucionado bug #1857559 app hangs, when database connection fails
+* Solucionado bug #1945619 installer: suitable for x86 and x86_64
+* Solucionado bug #2148171 abanq2.3 and postgresql8.3: hanging transaction
+* Solucionado bug #2146307 abanq2.3: doesn't compile with gcc4.3
+!! 10/10/2008 version 2.3:
+* Incluido sistema experimental de actualizaciones 
+* Incluido driver de MySQL adaptado para no usar InnoDB ( MYSQL_NO_INNODB )
+* Nueva clase FLNetwork para realizar conexiones HTTP
+!! 30/09/2008 version 2.3:
+* Incluido proceso para almacenar imágenes en tablas separadas y usar referencias a ellas en la consultas. Esto mejora mucho la velocidad cuando en una consulta se incluye un campo tipo imagen. 
+!! 21/09/2008 version 2.3:
+* Incluido preprocesador de código de script para eliminar comentarios (optimiza memoria y velocidad), y autocorregir errores comunes.
+!! 12/09/2008 version 2.3:
+* Modificación de FLFormDB y derivadas para retrasar su destrucción lo máximo posible, este rodeo minimiza en gran medida los errores en Windows.
+* Mejoras en FLFormDB y derivadas en la construccion dinámica de la interfaz
+!! 04/08/2008 version 2.3:
+* Mejora en el generador de informes para poder establecer como origen de datos un documento xml
+!! 23/07/2008 version 2.3:
+* Mejora en la casación tipos variantes, en FLFieldDB, FLTableDB, FLSqlCursor y FLSqlQuery
+!! 27/06/2008 version 2.3:
+* Mejorada la generación de PDF usando GhostScript
+!! 15/06/2008 version 2.3:
+* Soporte para compilar en Linux 64 bits
+!! 05/06/2008 version 2.3:
+* Mejora en driver PostgreSQL utlizando operadores ::text
+* Creación automática de filtros persistentes en FLSqlCursor
+!! 02/06/2008 version 2.3:
+* Mejora en FLSqlCursorInterface, optimización de memoria y velocidad mediante una caché de objetos FLSqlCursor
+!! 31/05/2008 version 2.3:
+* Mejoras en la regeneración de tablas y en Mr.Proper, en PostgreSQL y MySQL
+* Corregido error de codificacion y longitud de cadenas de texto en QSA ( qsutilfactory.cpp )
+!! 27/05/2008 version 2.3:
+* Actualizacion de Hoard a version 3.7
+* Corregida generación de clausula ORDER BY en FLSqlCursor, cuando el cursor se genera a partir de una consulta
+!! 21/05/2008 version 2.3:
+* Soporte para tipo FIELD_TYPE_NEWDECIMAL en driver de MySQL
+!! 12/05/2008 version 2.3:
+* Mejora en FLDomNodeInterface, optimización de memoria y velocidad de ejecución mediante una caché de nodos
+!! 17/04/2008 version 2.3:
+* Solucionados varios bugs menores
+!! 19/03/2008 version 2.3:
+* Mejora en FLSqlCursor que detecta transacciones pendientes que deberían haber finalizado y posteriormente las deshace para volver a un estado consistente
+!! 18/03/2008 version 2.3:
+* Varias mejoras de velociadad y uso de memoria de las clases de interfaz de script para el manejo de XML ( FLDomNodeInterface y FLDomNodeListInterface )
+!! 29/02/2008 version 2.3:
+* Nuevo métodos auxiliares para facilitar el manejo de objetos tipo Pixmap (imagenes) desde scripts; ver sys.dialogGetFileImage, sys.toPixmap y sys.fromPixmap (clase FLApplicationInterface)
+* Corregido error en componentes FLFieldDB de campos tipo Pixmap, que duplicaba la creación del editor de imágenes cuando se utilizaba la propiedad fieldRelation
+!! 22/02/2008 version 2.3:
+* Mejoras en driver de PostgreSQL. Soporte para PostgreSQL version 8.3
+* Varias mejoras para determina correctamente el tipo de datos de los valores variantes que proceden de cursores de la base de datos y de componentes de formularios
+* Varia mejoras y optimizaciones en el refresco de los componentes de los formularios
+* Posiblidad de ocultar el marco de búsqueda y el de filtro en FLTableDB, ver propiedades findHidden y filterHidden
+* Nueva funcionalidad en FLTableDB para definir filtros avanzados sobre los registros de la tabla
+* Nueva funcionalidad en FLTableDB que permite incluir una columna de seleción de registro, ver propiedad checkColumnEnabled y relacionados
+!! 04/02/2008 version 2.3:
+* Nuevo objeto FLPicture (Picture en los scripts) y modificado FLReportViewer para poder realizar procesos complejos, como por ejemplo gráficos, de dibujo sobre informes y formularios
+* Posbilidad de indicar parámetros en a línea de comando del programa principal
+!! 04/01/2008 version 2.3:
+* Mejorado FLFieldDB para que al abrir los formularios de búsqueda se seleccione automáticamente el registro correspondiente al valor actual del componente
+* Mejoras en las busquedas del componente FLTableDB
+* Mejoras en driver de MySQL. Soporte para MySQL version 5.
+!! 28/12/2007 version 2.3:
+* Optimizacion en QTable para manejar tablas muy, muy grandes
+* Nuevo método FLApplication::connectionNameForAction para poder definir en los scripts cual es la conexion de base de datos a utilizar al abrir una accion/tabla
+* Sistema experimental para permitir reimplementar métodos del motor mediante funciones de script; FLApplication::setReimpMethod, FLApplication::existsReimpMethod, FLApplication::callReimp
+* Mejorado sistema de codificación de caracteres para convertir a UTF8 de forma dinámica.Soluciona los problemas de caracteres extraños que aparecía en algunas distribuciones.
+* Mejorado cliente de correo ahora se puede especificar el servidor de correo saliente mediante FLSmtpClient::setMailServer 
+* Mejorada funcionalidad del módulo de sistema para cargar automáticamente todos los módulos contenidos en un directorio
+* Nueva funcionalidad en el módulo de sistema para limpiar y optimizar la base de datos
+* Nueva funcionalidad en el módulo de sistema que permite cargar automáticamente los módulos oficiales al iniciar una nueva base de datos
+* Varias mejoras y correccion de errores en SQLite
+!! 14/11/2007 version 2.3:
+* Solucionado error en el driver MySQL que se producía al filtrar por campos tipos Boolean
+!! 22/10/2007 version 2.3:
+* Nuevo sistema de gestión de memoria en entornos multihilo (Hoard), más rápido y más estable en sistemas Windows
+* Nueva librería para el manejo de puerto serie, utilizada para el control de visores TPV
+* Nuevo método FLFieldDB::setPixmap para poder cargar imágenes en los controles de tipo imagen desde los scripts.
+!! 07/08/2007 version 2.3:
+* Mejora en el sistema de generacion automática de fichero .qm para traducciones
+* Inicio version 2.3
+!! 07/08/2007 version 2.2:
+* Versión 2.2 cerrada
+!! 06/06/2007 version 2.2:
+* Modificado FLFielDB para admitir el apostrofe "`"
+* Nuevas claves del registro para invocar una funcion de script al inicio; application/callFuntion , application/arguments y application/quitAfterCall. Ver FLApplication::init
+!! 03/04/2007 version 2.2:
+* Incluido un nuevo atributo en los Label llamado LabelFunction. Cuando este atributo tiene valor el texto del label es el resultado de la función indicada, pasando como parámetro el valor del atributo Text.
+!! 31/03/2007 version 2.2:
+* Actualizado Qt de la versión 3.3.6 a la 3.3.6
+* Actualizado QSA de la versión 1.1.4 a la 1.1.5
+!! 23/03/2007 version 2.2:
+* Incluido un visor de imagenes integrado ( FLImageViewer )
+!! 12/03/2007 version 2.2:
+* Mejora en FLReportViewer que permite establecer el cerrado automático del visor de informes despues de imprimir
+* Mejorado FLUtil::nextCounter para generar contadores cíclicos que no sobrepasen el rango maximo determinado por la longitud del campo
+* Optimización en FLFormRecord::acceptContinue,FLFormRecord::firstRecord|lastRecord|nextRecord|prevRecord
+!! 27/02/2007 version 2.2:
+* Nuevas funciones para convertir a Unicode y desde Unicode. Disponibles en scripts; sys.toUnicode y sys.fromUnicode
+!! 14/01/2007 version 2.2:
+* Mejorado el funcionamiento de campos de imagen (tipo Pixmap) para soportar más formatos (JPEG,GIF,MNG,BMP, etc..)
+!! 26/12/2006 version 2.2:
+* Nuevas funcionalidades para exportar a PDF y enviar por e-mail desde el visor de informes
+!! 23/12/2006 version 2.2:
+* Solucionado bug #1609159
+* Solucionado bug #1609149
+* Solucionado error ocasional en la regeneración de tablas cuando se cambia un campo para que no permita nulos
+* Mejora en campos tipo lista para aceptar traducciones a otros idiomas sin necesidad de modificar la lógica en scripts. Soluciona peticion #1560101 y bug #1582500
+* Solucionado bug #1610115
+!! 18/12/2006 version 2.2:
+* Nueva propiedad textFormat en componentes FLFieldDB para establecer el formato del texto en campos del tipo multilinea
+!! 12/12/2006 version 2.2:
+* Corregido FLUtil::nextCounter para tener en cuenta la longitud del campo a la hora de calcular el máximo
+!! 02/12/2006 version 2.2:
+* Mejora en el driver de MySQL para utilizar puntos de salvaguarda ( setencia savepoint ) nativos.
+* Incluida la posibilidad de exportar la impresión de informes a ficheros con formato PDF. También disponible para los scripts.
+* Corregida la impresión directa a fichero Postscript en la plataforma Win32.
+* Nuevo cliente de correo eléctronico integrado en la librería base (FLSmtpClient), para el envío de correos mediante SMTP. Incluido en la interfaz de scripts.
+!! 29/11/2006 version 2.2:
+* Mejora en el driver de PostgreSQL para utilizar puntos de salvaguarda ( setencia savepoint ) nativos en las versiones ( >= 8.0 ).
+!! 23/11/2006 version 2.2:
+* Connects excluyentes en scripts. Ahora un connect lleva ímplícito un disconnect de ese objeto y de todas sus señales.
+!! 31/10/2006 version 2.2:
+* Mejora para aumentar precisión en operaciones con decimales. Corrige errores de rendondeo en bases de datos MySQL.
+!! 12/10/2006 version 2.2:
+* Corregidos bugs #1529527, #1456792, #1554181 y #1554188
+!! 18/09/2006 version 2.2:
+* Incluida la capacidad de mantener varias conexiones simultaneas a distintas base de datos, incluso de distintos tipos. Nueva clase FLSqlConnections
+* Solucionado fallo de segmento muy poco frecuente en la regeneracion de tablas
+* Mejora en driver ESC/POS para windows, ahora LPR se busca en  %windir%/system32 en vez de en c:/windows/system32
+!! 15/09/2006 version 2.2:
+* Solucionado bug #1555233
+* Actualizada libpq a la version 4.1
+* Inicio version 2.2
+!! 09/08/2006 version 2.1:
+* Versión 2.1 cerrada
+!! 01/08/2006 version 2.1:
+* Nueva funcionalidad en FLFieldDB para poder asignar atajos de teclado controlados mediante los scripts
+!! 14/07/2006 version 2.1:
+* Incluida mejora en FLSqlCursor para manejar conjuntos de registros provenientes de una consulta. Hasta ahora sólo podía manejar una tabla.
+!! 12/07/2006 version 2.1:
+* Mejora para que en los campos tipo fecha sólo se establezca la fecha actual automáticamente si el campo no admite nulos
+!! 06/07/2006 version 2.1:
+* Solucionado error en campos numéricos que admiten nulos que impedia diferenciar entre el valor NULL y el valor 0
+* Solucionado error de violación de segmento al comprobar propiedad checkIn en FLSqlCursor
+* Mejora en la velocidad en clases FLTableDB y FLDataTable
+!! 05/07/2006 version 2.1:
+* Creación automática de algunos índices en el driver MySQL.
+* Mejora en el driver MySQL para tratamiento de secuencias en campos tipo Serial.
+!! 22/06/2006 version 2.1:
+* Incluida funcion de exportar a CSV en el visor de informes.
+!! 21/06/2006 version 2.1:
+* Incluida función de Zoom en el visor de informes.
+* Nuevo metodo FLReportViewer::reportPrinted() para poder determinar si realmente se ha imprimido un informe.
+!! 06/06/2006 version 2.1:
+* Actualizado Qt de la versión 3.3.5 a la 3.3.6
+* Incluida la posibilidad de elegir programa de impresión alternativo a lpr en *nix.
+!! 10/04/2006 version 2.1:
+* Actualizado QSA de la versión 1.1.3 a la 1.1.4
+!! 01/04/2006 version 2.1:
+* Navegacion mejorada de registros desde formularios de edición. Mejorado "aceptar y continuar". Soluciona bug #1456792
+!! 17/03/2006 version 2.1:
+* Incluida posibilidad de acceder desde scripts a impresoras del tipo ESC/POS
+* Nuevo método FLReporViewer::setPrinterName para establecer el nombre de impresora para poder imprimir directamente sin mostrar el diálogo de impresión, accesible desde scripts
+* Nuevo método FLReporViewer::setPrintToPos para indicar que se imprima en formato ESC/POS, accesible desde scripts.
+* Soporte para impresoras de tickets del tipo ESC/POS para TPV
+* Incluida posibilidad de establecer filtros de componentes FLTableDB desde scripts
+* Aplicado parche que soluciona bug #1442724, por Luis Gerardo Muro Ramos
+* Inicio versión 2.1
+!! 17/02/2006 version 2.0:
+* Versión 2.0 cerrada
+!! 17/02/2006 version 2.0-svn:
+* Mejor ajuste de detalles de informes hasta el pie cuando estos ocupan varias páginas
+!! 26/01/2006 version 2.0-svn:
+* Nuevo metodo FLSqlCursor::commitBufferCursorRelation para aceptar el registro del cursor relacionado, posicionandose en el
+* Nuevo metodo FLTableDB::setOrderCols, disponible tambien desde scripts, para establecer el orden de la columnas de una tabla de datos
+* Incluida nueva propiedad <checkIn> de las relaciones en los metadatos que permite evitar los chequeos de integridad
+* Nuevo metodo FLReportViewer::setNumCopies, disponible tambien desde scripts, para establecer el número de copias a imprimir de un documento. Resuelve bug #1404584
+* Resueltos bugs : #1357262, #1378391, #1378392, #1400835
+* Mejora en la impresion de MacOSX. Ahora utliza el subsistema lpr-CUPS, igual que Linux/Unix.
+!! 21/01/2006 version 2.0-svn:
+* Incluido almacenamiento de marcadores de conexion en la ventana de inicio
+!! 17/01/2006 version 2.0-svn:
+* Mejora en la regeneracion de tablas. Ahora la regeneracion solo se lleva a cabo si el cambio en los metadatos implica un cambio de estructura de la tabla en la base de datos.
+!! 29/12/2005 version 2.0-svn:
+* Incluida creación dinamica de relaciones 1M no definidas en los metadatos. Estas relaciones son creadas en el momento de ser solicitadas por componentes del tipo FLFieldDB y FLTableDB
+!! 26/12/2005 version 2.0-svn:
+* Optimizaciones de velocidad y visuales en tablas de datos
+* Optimizacion de velocidad en el controlador de PostgreSQL utilizando cursores en el backend y caches de resultados en el frontend
+!! 18/12/2005 version 2.0-svn:
+* Optimizaciones de velocidad utilizando nuevas cachés de objetos.
+* Resuelto problema de desbordamiento de pila en QSA.
+!! 10/12/2005 version 2.0-svn:
+* Modificado FLScriptEditor para poder ser usado como editor de cualquier tipo de texto, y no sólo de scripts cargados.
+* Nuevo método FLApplication::printTextEdit, para imprimir directamente editores de texto ( QTextEdit ). También disponible desde scripts.
+!! 02/12/2005 version 2.0-svn:
+* Colores de resaltado para valores negativos y valores lógicos ( Sí/No ) en los campos de las tablas de datos.
+!! 26/11/2005 version 2.0-svn:
+* Incluido soporte y driver para la base de datos MySQL 4.1. Experimental.
+!! 24/11/2005 version 2.0-svn:
+* Incluida en FLTableDB búsqueda rápida y simultánea en varios campos, por Luis Gerardo Muro Ramos
+!! 23/11/2005 version 2.0-svn:
+* Código específico de cada base de datos eliminado de la librería base y reescrito en los drivers
+* Nuevas clases FLSqlDriver y FLSqlDatabase, para encapsular el código específico de cada base de datos en el driver correspondiente
+!! 11/11/2005 version 2.0-svn:
+* Nuevo método para imprimir directamente a fichero postscript
+* Inicio versión 2.0
+!! 03/11/2005 version 1.9:
+* Versión 1.9 cerrada
+!! 28/10/2005 version 1.9-svn:
+* Mejorado el ajuste automático de fuentes según DPI, para tratar correctamente resoluciones desiguales en el ancho y el alto
+!! 17/10/2005 version 1.9-svn:
+* Corregido error en la orientación de página al previsualizar informes en Windows.
+* Incluidos iconos de aplicación para MacOSX.
+* Corregidos errores de posicionamiento del foco.
+* Corregidos errores de refresco en Windows.
+!! 12/10/2005 version 1.9-svn:
+* Corregidos varios bugs en el sistema de traducciones. Cambiado el formato de los ficheros de módulo y área para admitir los nombres de módulo y área en otros idiomas.
+!! 08/10/2005 version 1.9-svn:
+* Soporte inicial para listas de control de acceso (permisos de usuarios)
+* Incluida la opción de conectar automáticamente (autoLogin)
+!! 25/09/2005 version 1.9-svn:
+* Incluido el editor de ficheros XML del osito Teddy. Ahora en el módulo de
+sistema se puede editar directamente el XML de los ficheros.
+* Mejoras en el editor de scripts, FLScriptEditor
+!! 23/09/2005 version 1.9-svn:
+* Nueva propiedad CodBarRes en plantillas de informes, util en campos de tipo
+código de barras para determinar la resolución en puntos por pulgadas de la
+imagen del código.
+!! 17/09/2005 version 1.9-svn:
+* Actualizado QSA de la versión 1.1.2 a la 1.1.3
+* Actualizado Qt de la versión 3.3.4 a la 3.3.5
+* Corregido error en saltos de páginas de informes
+* Inicio version 1.9
+!! 25/08/2005 version 1.8:
+* Versión 1.8 cerrada
+!! 25/07/2005 version 1.8-svn:
+* Propiedad outTransaction para campos de tablas corregida y operativa
+!! 19/07/2005 version 1.8-svn:
+* Incluida la posibilidad de bloquear la salida de la aplicación
+* Nueva funcionalidad para iniciar la aplicación utilizando un sólo formulario como ventana principal
+!! 17/07/2005 version 1.8-svn:
+* Corregido bug #1236196, por Luis Gerardo Muro
+!! 11/07/2005 version 1.8-svn:
+* Depuradas y corregidas varias fugas de memoria
+!! 05/07/2005 version 1.8-svn:
+* Optimizaciones en el código y en la compilación para mejorar la velocidad de ejecución
+!! 02/07/2005 version 1.8-svn:
+* Disponibles desde scripts nameDriver(), nameBD() y nameUser().
+* Nuevos métodos en FLApplication; setNameBD() y nameBD() para establecer
+y obtener respectivamente el nombre de la base de datos.
+* Nuevos métodos en FLApplication; setCaptionMainWidget() y lastTextCaption() para establecer y
+obtener respectivamente el título de las ventanas principales, también disponibles desde scripts.
+* Nuevos métodos en FLApplication; setNameUser() y nameUser() para establecer
+y obtener respectivamente el usuario de conexión.
+* Soporte para corregir el DPI de las fuentes de los informes y adaptarse automáticamente a resoluciones dinámicas de la pantalla
+* Mejoras en FLTester
+* Incluida traducción a Portugués
+!! 07/06/2005 version 1.8-svn:
+* Inicio versión 1.8
+!! 28/05/2005 version 1.7:
+* Versión 1.7 cerrada
+!! 24/05/2005 version 1.7-svn:
+* Corregido bug #1150833.
+* Corregidos errores de refrescos en FLTableDB.
+* Nueva funcionalidad para situar siempre automáticamente la posición del cursor
+en el último registros insertado o editado.
+* Ajustes en driver de PostgreSQL, para poder trabajar más fluidamente en
+generala y a través de conexiones lentas via Internet en modo de compilación quick.
+!! 24/04/2005 version 1.7-svn:
+* Mejoras en la regeneración de tablas
+* Mejoras en la compilación
+* Mejoras en la generación de códigos de barras
+!! 29/03/2005 version 1.7-svn:
+* Nuevos plugins de estilos KDE; plastik, liquid y dotnet2
+* Soporte para compilar en Mac X
+!! 07/03/2005 version 1.7-svn:
+* Corregido bug #1154620.
+* Corregido bug #1154064. El validador de numeros decimales ahora no acepta la coma como separador decimal.
+* Nuevo método rápido para reajuste automático de columnas. También corrige bug #1154061
+* Mejorado y corregido FLUtil::nextCounter
+!! 05/03/2005 version 1.7-svn:
+* Corregido bug #1122248, violación de segmento al cancelar generación de informe.
+Ahora al cancelar un informe muestra las páginas que se han podido generar y en la última 
+aparece un mensaje que avisa de que el informe ha sido cancelado y está incompleto.
+* Corregido bug #1154066, error en FlTableDB::putFirstCol
+* Corregido bug #1117955, sobre el funcionamiento incorrecto de campos calculados en pie de detalles, con la propiedad DrawAtHeader
+!! 03/03/2005 version 1.7-svn:
+* Mejora en driver PostgreSQL: creación automática de índices para campos relacionados M1.
+* Mejora en driver PostgreSQL: consultas asíncronas.
+* Desactivado reajuste automático de la longitud de las columnas en la tablas de datos, el proceso es demasiado pesado cuando hay un numero grande de registros.
+* Inicio versión 1.7
+!! 11/02/2005 version 1.6-svn:
+* Añadida la posibilidad de incluir campos calculados de tipo 'Call Function' en los detalles de informe
+!! 04/02/2005 version 1.6-svn:
+* Nueva herramienta para manejar ficheros dbf. Usada en el módulo para importación/exportación de datos
+* Nueva tabla de sistema flsettings para guardar informaciones y configuraciones globales
+* Nuevo método FLDiskCache::clear
+!! 28/01/2005 version 1.6-svn:
+* Corregido para que funcione correctamente la propiedad showAlias de FLFieldDB
+* Nuevos métodos y señales en FLFieldDB, textChanged, keyF2Pressed, setMapValue 
+* Revisado y mejorado FLTableDB, campo de búsqueda con F2, reescrito putFirstCol
+!! 27/01/2005 version 1.6-svn:
+* Actualizado Qt de la versión 3.3.3 a la 3.3.4
+!! 21/01/2005 version 1.6-svn:
+* Nueva ventana de conexión
+* Mejorada la secuencia de conexion en FLSessionDB
+* Corregido  bug #1105399
+!! 18/01/2005 version 1.6-svn:
+* Actualizado QSA de la versión 1.1.1 a la 1.1.2
+!! 12/01/2005 version 1.6-svn:
+* Método único para llamar a funciones de scripts en FLApplication::call
+* Nuevo sistema de organización de ventanas. Experimental.
+* Adaptación del código para compilar directamente en win32. Probado con mingw, borland y msvc.
+* Corregidos varios bugs.
+!! 23/12/2004 version 1.6-svn:
+* Inicio de la versión 1.6
+!! 20/12/2004 version 1.5-svn:
+* Nuevos métodos en interfaz de scripts FLUtil::fieldNameToAlias FLUtil::fieldAliasToName FLUtil::fieldType FLUtil::fieldLength 
+!! 17/12/2004 version 1.5-cvs:
+* Nueva propiedad showAlias en FLFieldDB. Autor Andrés Otón
+* Modificado FLFieldDB para mostrar datos de una tabla no relacionada. Autor Andrés Otón
+!! 15/12/2004 version 1.5-svn:
+* Modificado FLTableDB para permitir mostrar cualquier tabla, utilizando solamente la propiedad tableName.
+!! 03/12/2004 version 1.5-svn:
+* Nuevo atributo BlankZero para campos de informes.
+Autor Andrés Moya <a.moya_en_elore_punto_net> Elore Soluciones Informáticas, S.L.
+!! 02/12/2004 version 1.5-svn:
+* Nuevo atributo DrawAllPages para pies de detalle de informes
+!! 01/12/2004 version 1.5-svn:
+* Método FLTableDB::putFirstCol para poder establecer desde scripts el
+campo de búsqueda en tablas maestro. Autor viernes_en_xmarts_punto_com_punto_mx
+!! 26/11/2004 version 1.5-svn:
+* Nuevo metodo en la interfaz de scripts FLSqlCursor::isValid()
+* Gestion de puntos de salvaguarda para simulacion de transacciones anidadas. Nueva clase FLSqlSavePoint
+!! 25/11/2004 version 1.5-svn:
+* Nuevos atajos de teclado en el campo de búsqueda de las tablas de registro (FLTableDB). Con tecla arriba se pasa a elegir el campo por el que buscar y con tecla a bajo se pasa a la lista de registros
+!! 23/11/2004 version 1.5-svn:
+* Posibilidad de moverse por los campos de un formulario con las teclas de cursor arriba y abajo
+* Tabulacion automatica en formularios al alcanzar la longitud máxima de un campo tipo string
+* Mejorado comportamiento de los botones de navegacion "aceptar y continuar","primero","ultimo","siguiente" y "anterior"  en los formularios de edición de registro
+!! 18/11/2004 version 1.5-svn:
+* Nuevo metodo en la interfaz de scripts FLSqlCursor::at()
+!! 16/11/2004 version 1.5-svn:
+* Corregido FLFieldDB::setValue y FLFieldDB::value para mostrar correctamente campos tipo Pixmap
+* Corregido FLSqlCursor para que las relaciones se actualizen correctamente aunque los nombres de los campos relacionados sean distintos.
+!! 01/11/2004 version 1.5-svn:
+* Corregido error de violacion de segmento al eliminar módulos.
+* Inicio de la versión 1.5
+!! 28/10/2004 version 1.4:
+* Publicación de versión 1.4
+!! 22/10/2004 version 1.4-svn:
+* Nuevos metódos snapShot para obtener en tiempo de ejecución capturas de pantalla de los formularios
+* Ajuste automático del ancho de columna en FLDataTable
+* Corregida perdida de memoria en FLApplication
+* Corregidos varios bugs y realizados varios ajustes
+!! 14/10/2004 version 1.4-svn:
+* Corregido bug 1038389. Problema con caràcter ' en los campos de búsqueda
+!! 08/10/2004 version 1.4-svn:
+* Varias chequeos para evitar acceder a tablas no existentes
+!! 01/10/2004 version 1.4-svn:
+* Corregido bug 1045123. Fallo insersión en campos de texto
+* Mejorado el inicio de carga de scripts
+* Eliminada carga lenta de scripts al recarga un módulo
+* Actualización a Qt 3.3.3 y QSA 1.1.1
+* Incluida librería cliente de PostgreSQL (libpq) y scripts de compilación
+* Actualizada librería de SQLite y mejorado el driver
+* Inicio del desarrollo de la versión 1.4
+!! 21/09/2004 version 1.3:
+* Liberada versión 1.3
+!! 17/09/2004 version 1.3-cvs:
+* Corregida la regeneración de tablas por claves sha1
+* Actualización correcta del buffer en FLFormRecorDB cuando se utiliza los
+botones siguiente, anterior, etc.. y aceptar y continuar
+* Pequeñas mejoras en el tratamiento de nulos
+!! 16/09/2004 version 1.3-cvs:
+* Driver de PostgreSQL más rápido. Aprovecha la metainformación, y así el
+número de consultas a la base de datos es mucho menor
+* Corregido error en FLUtil::isDefFile
+* Corregido error de incializacion de tablas del sistema
+!! 15/09/2004 version 1.3-cvs:
+* Comprobación de cambios en tablas mediante claves sha1.
+* Chequeos de nulos corregidos.
+!! 14/09/2004 version 1.3-cvs:
+* Nuevos metodos isNull y setNull en FLSql..., disponibles para scripts
+* Solucionada inconsistencia en cursores con nulos en campos numericos
+!! 13/09/2004 version 1.3-cvs:
+* Nuevo sistema de cache local de ficheros en disco
+* Mejorado sistema de compilación
+!! 08/09/2004 version 1.3-cvs:
+* Corregido el dibujo de objetos en cabeceras de informes
+* Eliminando errores en refresco de fechas y campos de lista desplegable
+* Posibilidad de construir sentencias SQL sin el "FROM"
+* Optimizaciones generales en FLSqlCursor
+!! 01/09/2004 version 1.3-cvs:
+* Varias optimizaciones importantes de velocidad.
+!! 03/08/2004 version 1.3-cvs:
+* Añadido objeto FLVar para gestionar variables de sesión
+* Añadidos métodos sqlSelect, sqlInsert, sqlUpdate y sqlDelete al objeto
+FLUtil para agilizar los accesos a base de datos desde los scripts
+!! 02/08/2004 version 1.3-cvs:
+* Incluido el atributo DrawIf en las secciones de informes para no dibujarlas
+en el caso de que cierto campo esté vacío o su valor numérico sea cero
+!! 23/07/2004 version 1.3-cvs:
+* Incluida posibilidad de llamar a campos calculados de tipo CallFunction
+desde las cabeceras de detalle de los informes
+!! 14/07/2004 version 1.3-cvs:
+* Mejorado el borrado de registros en cascada
+!! 14/07/2004 version 1.3-cvs:
+* Solucionado bug al emitir la señal close() después de cambiar de contexto
+* Ampliada la funcionalidad de manejo de fechas desde scripts
+* Inicio del desarrollo de la versión 1.3
+!! 02/07/2004 version 1.2:
+* Liberada version 1.2
+!! 01/07/2004 version 1.2-cvs:
+* Funcionalidad para exportar módulos a un directorio del sistema de
+ficheros
+* Nuevos iconos
+!! 28/06/2004 version 1.2-cvs:
+* Solucionado bug de propagación de un posible error en el borrado en cadena
+de un registro y sus registros relacionados
+* Método close() de FLTableDB sacado a la interfaz de scripts
+* Método close() de FLFieldDB sacado a la interfaz de scripts
+* Soporte para valores nulos en campos numéricos relacionados con una tabla
+padre
+!! 23/06/2004 version 1.2-cvs:
+* Acelerada la carga de scripts
+* Nuevo estilo Bluecurve, incluido "de serie"
+* Corregida la visualización de ventanas maximizadas en el espacio MDI.
+!! 18/06/2004 version 1.2-cvs:
+* Introducidas comprobaciones de error para insertar, editar y borrar en
+FLSqlCursor::commitBuffer()
+* Corregido error en el filtrado de registro, para buscar por un campo en
+FLTableDB. Ahora ya se reinicia el filtro y no se mantiene el antiguo.
+* Algunas optimizaciones en el "refresh" de FLTableDB.
+!! 11/06/2004 version 1.2-cvs:
+* Adaptación de Kugar para soportar informes de tipo suma-y-sigue
+* Adaptación de Kugar para incluir campos calculados a partir de funciones de
+script
+!! 07/06/2004 version 1.2-cvs:
+* Adaptación de Kugar para soportar informes de etiquetas
+!! 03/06/2004 version 1.2-cvs:
+* Inicio del desarrollo de la versión 1.2
+!! 29/05/2004 version 1.1:
+* Liberada version 1.1
+!! 28/05/2004 version 1.1-cvs:
+* Ajustes en FLFieldDB para actualizar correctamente campos en modo
+inserción
+* Pequeñas optimizaciones en la carga de scripts
+!! 19/05/2004 version 1.1-cvs:
+* Ahora los métodos FLUtil::enLetra* devuelven texto en mayúsculas
+!! 12/05/2004 version 1.1-cvs:
+* Nuevo método FLUtil::enLetraMoneda
+!! 10/05/2004 version 1.1-cvs:
+* Corregida desincronización de transacciones en formularios de
+visualización
+* Cambiado FLDataTable::setReadOnly por FLDataTable::setFLReadOnly, para
+evitar conflictos con clase base
+* Corregido FLUtil::partDecimal()
+* Corregido mal comportamiento de FLFieldDB::setValue() para campos del tipo
+stringlist
+!! 07/05/2004 version 1.1-cvs:
+* Nuevo método size en FLSqlCursorInterface
+* Nuevo método daysTo en FLUtil
+* Nuevo método setEditOnly en FLTableDB
+!! 05/05/2004 version 1.1-cvs:
+* Nueva función addDays en FLUtil
+* Corregido FLScriptEditor para no duplicar la variable 'form' al editar un
+script
+* Incluidas aceleraciones de teclado para activar un módulo. A cada módulo
+se le asigna una 'letra' y se activa con la combinación Ctrl+Shift+'letra'.
+Además aparece el nombre del módulo activo en la barra de título de ventana
+principal.
+* Los módulos de un área, ahora se muestran en orden alfabético
+* Mejorado el sistema de módulos. Ahora cualquier modificación/carga/descarga de
+un módulo desde un cliente cualquiera, es detectada por el resto de clientes para
+actualizar con los nuevos cambios
+!! 03/05/2004 version 1.1-cvs:
+* Corregido error en compilación, en FLFieldMetadata.cpp
+!! 30/04/2004 version 1.1-cvs:
+* Mejoras en el filtrado de registros de FLTableDB
+* Mejorado el comportamiento de FLFieldDB, cuando su valor depende de
+otros campos
+!! 29/04/2004 version 1.1-cvs:
+* Inicio del desarrollo de la versión 1.1
+!! 27/04/2004 version 1.0:
+* Versión 1.0 final.
+!! 21/04/2004 version 1.0-beta1:
+* Incluidos en FLTester parametros first,last,next y prev para la accion
+selectRow del objeto FLTableDB, para poder moverse por los registros de la
+rejilla
+!! 20/04/2004 version 1.0-beta1:
+* Refresco automático de FLDataTable al recibir el foco
+!! 18/04/2004 version 1.0-beta1:
+* Modificación para actualizar correctamente el formulario principal de un
+módulo, cuando ha sido modificado. Eliminado "warning" por no establecer las
+tablas en la consulta de campos calculados.
+* Agregada funcionalidad para que los módulos puedan requerir una versión
+mínima de la librería base
+* El formulario maestro del modulo de sistema ahora en FLWidgetMasterTable.ui
+!! 14/04/2004 version 1.0-beta1:
+* Corregido error en la generación de XML en kudesigner
+* Corregidos algunos fallos en la carga de módulos
+!! 06/04/2004 version 1.0-beta1:
+* Mejora sustancial en la velocidad de carga de los módulos
+!! 02/04/2004 version 1.0-beta1:
+* Funcionalidad de automatización (objeto FLTester)
+!! 31/03/2004 version 1.0-beta1:
+* Optimizada la recarga de módulos
+!! 30/03/2004 version 1.0-beta1:
+* Pequeñas optimizaciones en la carga de módulos
+!! 25/03/2004 version 1.0-beta1:
+* Incluida la verificación de versiones al cargar los módulos de FacturaLUX.
+* Incluida la verificación de dependencias entre módulos.
+!! 24/03/2004 version 1.0-beta1:
+* Mejora en la ordenación de resultados de consultas e informes. Creada la
+propiedad orderBy_, y los métodos orderBy() y setOrderBy() para el objeto
+FLSqlQuery. setOrderBy() es accesible desde los scripts.
+!! 09/03/2004 version 1.0-beta1:
+* Eliminada la posibilidad de insertar directamente en la rejilla
+registros con la tecla "Insert"
+* Integrada herramienta Kudesigner para la edición de informes
+* Liberación de FacturaLUX Lite 1.0-beta1, por fin !!
+* Inicio de FacturaLUX Lite 1.0 a partir de FacturaLUX Prototipo version CVS del 22/12/2003

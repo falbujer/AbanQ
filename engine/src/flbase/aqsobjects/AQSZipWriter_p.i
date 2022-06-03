@@ -1,0 +1,15 @@
+@AQZipWriter(const QString& fileName, uint mode=IO_WriteOnly);
+@AQZipWriter(QIODevice* device);
+QIODevice* device() const;
+bool isWritable() const;
+bool exists() const;
+uint status() const;
+void setCompressionPolicy(AQZipWriter::CompressionPolicy policy);
+uint compressionPolicy() const;
+void setCreationPermissions(QFileInfo::PermissionSpec permissions);
+uint creationPermissions() const;
+void addFile(const QString& fileName, QByteArray* data);
+void addFile(const QString& fileName, QIODevice* device);
+void addDirectory(const QString& dirName);
+void addSymLink(const QString& fileName, const QString& destination);
+void close();

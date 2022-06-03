@@ -1,0 +1,13 @@
+@AQDataTable(QWidget* parent=0, const char* name=0, bool popup=false);
+void setPersistentFilter(const QString& pFilter);
+FLSqlCursor* cursor() const;
+void setFLReadOnly(const bool mode);
+void setEditOnly(const bool mode);
+void setInsertOnly(const bool mode);
+QVariantList primarysKeysChecked() const;
+void clearChecked();
+void setPrimaryKeyChecked(const QVariant& primaryKeyValue, bool on);
+void setShowAllPixmaps(bool s);
+void setFunctionGetColor(const QString& f);
+int indexOf(uint i) const;
+QString fieldName(int col) const;

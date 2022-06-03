@@ -1,0 +1,10 @@
+@QComboTableItem(QTable* table, const QStringList& list, bool editable=FALSE);
+void setCurrentItem(int i);
+void setCurrentItem(const QString& s);
+int currentItem() const;
+QString currentText() const;
+int count() const;
+QString text(int i) const;
+void setEditable(bool b);
+bool isEditable() const;
+void setStringList(const QStringList& l);

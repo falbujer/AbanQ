@@ -1,0 +1,12 @@
+@QDomCharacterData();
+@QDomCharacterData(QDomCharacterData* x);
+virtual QString substringData(unsigned long offset, unsigned long count);
+virtual void appendData(const QString& arg);
+virtual void insertData(unsigned long offset, const QString& arg);
+virtual void deleteData(unsigned long offset, unsigned long count);
+virtual void replaceData(unsigned long offset, unsigned long count, const QString& arg);
+virtual uint length() const;
+virtual QString data() const;
+virtual void setData(const QString& v);
+virtual uint nodeType() const;
+virtual bool isCharacterData() const;

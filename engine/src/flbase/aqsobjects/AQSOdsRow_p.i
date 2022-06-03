@@ -1,0 +1,11 @@
+@AQOdsRow(AQOdsSheet* sheet);
+void close();
+AQOdsRow* opIn(AQOdsChart* value, uint column_span=0, uint row_span=0);
+AQOdsRow* opIn(AQOdsImage* value, uint column_span=0, uint row_span=0);
+AQOdsRow* opIn(AQOdsStyle* style);
+AQOdsRow* opIn(const QString& value, uint column_span=0, uint row_span=0);
+AQOdsRow* opIn(double value, uint column_span=0, uint row_span=0);
+AQOdsRow* coveredCell();
+AQOdsRow* addBgColor(AQOdsColor* color);
+AQOdsRow* addFgColor(AQOdsColor* color);
+AQOdsRow* setFixedPrecision(uint p);

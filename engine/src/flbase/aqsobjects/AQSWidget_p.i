@@ -1,0 +1,14 @@
+@QWidget(QWidget* parent=0, const char* name=0, WFlags f=0);
+QWidget* parentWidget(bool sameWindow=FALSE) const;
+uint testWFlags(WFlags f) const;
+QWidget* childAt(int x, int y, bool includeThis=FALSE) const;
+QWidget* childAt(const QPoint& p, bool includeThis=FALSE) const;
+QFontMetrics* fontMetrics() const;
+void setFixedSize(const QSize& s);
+void setFixedSize(int w, int h);
+void setFixedWidth(int w);
+void setFixedHeight(int h);
+QLayout* layout() const;
+void setSizePolicy(QSizePolicy::SizeType hor, QSizePolicy::SizeType ver, bool hfw=FALSE);
+virtual void reparent(QWidget* parent, WFlags f, const QPoint& p, bool showIt=FALSE);
+void reparent(QWidget* parent, const QPoint& p, bool showIt=FALSE);

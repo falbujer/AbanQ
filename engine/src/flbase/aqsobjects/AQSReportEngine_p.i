@@ -1,0 +1,10 @@
+@AQReportEngine(QObject* parent=0);
+bool setReportData(FLSqlQuery* q);
+bool setFLReportData(QDomNode* n);
+bool setReportData(FLSqlCursor* t);
+bool setFLReportTemplate(const QString& t);
+bool setFLReportTemplate(QDomNode* n);
+FLSqlQuery* rptQueryData() const;
+QString rptNameTemplate() const;
+_QDomDocument* rptXmlData() const;
+_QDomDocument* rptXmlTemplate() const;

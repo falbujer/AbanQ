@@ -1,0 +1,10 @@
+@QCursor();
+@QCursor(int shape);
+@QCursor(const QBitmap& bitmap, const QBitmap& mask, int hotX=-1, int hotY=-1);
+@QCursor(QPixmap* pixmap, int hotX=-1, int hotY=-1);
+@QCursor(QCursor* c);
+int shape() const;
+void setShape(int);
+const QBitmap* bitmap() const;
+const QBitmap* mask() const;
+QPoint hotSpot() const;
