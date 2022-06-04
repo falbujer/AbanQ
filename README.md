@@ -9,3 +9,4 @@
 ### See also: 
 *  [AbanQ Modules](https://github.com/falbujer/AbanQ-Modules)
 *  [AbanQ Features](https://github.com/falbujer/AbanQ-Features)
+*  [AbanQ Solutions](https://github.com/falbujer/AbanQ-Solutions)
