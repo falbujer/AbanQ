@@ -1,4 +1,4 @@
-# AbanQ
+# AbanQ ERP Software
 
 ## Downloads
    * [Windows](https://github.com/falbujer/AbanQ/releases/download/2.5.0.38719/AbanQ-2.5.0.38719-Windows-x86-Install.exe)
