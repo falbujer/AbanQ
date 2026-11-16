@@ -1,5 +1,5 @@
-# Si te interesa AbanQ echa un vistazo a su evolución AbanGO en https://landing.abango.io/
-# If you are interested in AbanQ, take a look at its evolution, AbanGO, at https://landing.abango.io/
+## Si te interesa AbanQ echa un vistazo a su evolución con IA; AbanGO en https://landing.abango.io/
+## If you are interested in AbanQ, take a look at its evolution with IA; AbanGO, at https://landing.abango.io/
 
 # AbanQ ERP Software
 
