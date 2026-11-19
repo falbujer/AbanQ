@@ -1,7 +1,5 @@
-## Si te interesa AbanQ echa un vistazo a su evolución con IA; AbanGO en https://landing.abango.io/
-## If you are interested in AbanQ, take a look at its evolution with IA; AbanGO, at https://landing.abango.io/
-
-## AbanGO ha sido creado por Fede Albujer, creador también de AbanQ
+## Si te interesa AbanQ echa un vistazo a su evolución con IA; AbanGO en https://abango.io/. AbanGO ha sido creado por Fede Albujer, creador también de AbanQ.
+## If you are interested in AbanQ, take a look at its evolution with IA; AbanGO, at https://abango.io/. AbanGO was created by Fede Albujer, who also created AbanQ.
 
 # AbanQ ERP Software
 
